@@ -1,4 +1,4 @@
-# 📋 Control de Tareas
+# Control de Tareas
 
 Aplicación de escritorio desarrollada en Java para la gestión de tareas personales.
 
