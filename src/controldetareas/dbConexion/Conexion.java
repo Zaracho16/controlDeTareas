@@ -1,5 +1,5 @@
 
-package controldetareas.database;
+package controldetareas.dbConexion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -40,3 +40,7 @@ public class Conexion {
     
     
 }
+
+
+
+

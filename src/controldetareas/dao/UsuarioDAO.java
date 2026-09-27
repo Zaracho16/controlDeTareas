@@ -1,5 +1,7 @@
 
-package controldetareas.database;
+package controldetareas.dao;
+
+import controldetareas.dbConexion.Conexion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

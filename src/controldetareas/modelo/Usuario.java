@@ -1,5 +1,6 @@
 
-package controldetareas;
+package controldetareas.modelo;
+
 
 public class Usuario {
     
@@ -50,3 +51,4 @@ public class Usuario {
     
     
 }
+

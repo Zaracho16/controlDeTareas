@@ -1,8 +1,8 @@
 
 package controldetareas;
 
-import controldetareas.database.Conexion;
-import controldetareas.database.UsuarioDAO;
+import controldetareas.dbConexion.Conexion;
+import controldetareas.dao.UsuarioDAO;
 
 public class ControlDeTareas {
 
