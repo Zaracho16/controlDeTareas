@@ -38,4 +38,27 @@ public class UsuarioDAO {
             
     }
     
+    public boolean validacionCredenciales(String email, String password) {
+        
+        String sql = "SELECT id FROM usuario WHERE email = ? AND password = ?";
+        
+        try (Connection conexion = Conexion.conectar(); PreparedStatement sentencia = conexion.prepareStatement(sql)) {
+            
+            sentencia.setString(1, email);
+            sentencia.setString(2, password);
+            
+            try (ResultSet resultado = sentencia.executeQuery()){
+                return resultado.next();
+            }
+            
+        } catch (SQLException e) {
+            
+            System.out.println("Error al validar credenciales");
+            e.printStackTrace();
+            
+            return false;
+        }
+        
+    }
+    
 }
