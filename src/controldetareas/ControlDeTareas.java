@@ -12,8 +12,6 @@ public class ControlDeTareas {
         
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         
-        usuarioDAO.listarUsuarios();
-        
     }
     
 }

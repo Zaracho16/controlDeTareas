@@ -1,20 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package controldetareas.vista;
 
-/**
- *
- * @author zaracho
- */
+import controldetareas.dao.UsuarioDAO;
+import javax.swing.JOptionPane;
+
+
 public class Login extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
 
-    /**
-     * Creates new form Login
-     */
     public Login() {
         initComponents();
     }
@@ -134,40 +128,30 @@ public class Login extends javax.swing.JFrame {
         String correo = jTextField1.getText();
         String contraseña = new String(jPasswordField1.getPassword());
         
-        if(correo.equals("admin@gmail.com") && contraseña.equals("1234")) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Inicio de sesión correcto");
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        
+        boolean credencialesCorrectas = usuarioDAO.validacionCredenciales(correo, contraseña);
+        
+        if(credencialesCorrectas) {
+            
+            Inicio inicio = new Inicio();
+            inicio.setVisible(true);
+            
+            this.dispose();
+            
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Correo o contraseña incorrecto");
+            
+            JOptionPane.showMessageDialog(this, "Correo o contraseña incorrecto");
+            
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
+ 
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new Login().setVisible(true));
     }
 
