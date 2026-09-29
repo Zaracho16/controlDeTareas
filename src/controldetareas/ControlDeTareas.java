@@ -12,13 +12,6 @@ public class ControlDeTareas {
         
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         
-       boolean resultado = usuarioDAO.validacionCredenciales(
-               "usuario1@gmai.com",
-               "1234"
-       );
-       
-        System.out.println("Salida: " + resultado);
-        
     }
     
 }
