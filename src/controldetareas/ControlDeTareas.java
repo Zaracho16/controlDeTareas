@@ -1,8 +1,6 @@
 
 package controldetareas;
 
-import controldetareas.dbConexion.Conexion;
-import controldetareas.dao.UsuarioDAO;
 import controldetareas.vista.Login;
 
 public class ControlDeTareas {

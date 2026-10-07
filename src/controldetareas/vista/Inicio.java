@@ -1,22 +1,38 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package controldetareas.vista;
 
-/**
- *
- * @author zaracho
- */
+import controldetareas.dao.TareaDAO;
+import controldetareas.modelo.Tarea;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 public class Inicio extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Inicio.class.getName());
 
-    /**
-     * Creates new form Inicio
-     */
+
     public Inicio() {
+        
         initComponents();
+        
+        DefaultTableModel modelo = (DefaultTableModel) tablaTareas.getModel();
+        
+        TareaDAO tareaDAO = new TareaDAO();
+        
+        List<Tarea> tareas = tareaDAO.listarTareas(1);
+        
+        for (Tarea tarea : tareas) {
+            
+            modelo.addRow(new Object[] {
+                tarea.getTitulo(),
+                tarea.getPrioridad(),
+                tarea.getNombreEstado(),
+                tarea.getNombreCategoria(),
+                tarea.getFechaLimite()
+            });
+            
+        }
+        
     }
 
     /**
@@ -28,21 +44,72 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblMisTareas = new javax.swing.JLabel();
+        btnNuevaTarea = new javax.swing.JButton();
+        btnFiltrar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaTareas = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblMisTareas.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        lblMisTareas.setText("MIS TAREAS");
+
+        btnNuevaTarea.setText("Nueva tarea");
+        btnNuevaTarea.addActionListener(this::btnNuevaTareaActionPerformed);
+
+        btnFiltrar.setText("Filtrar");
+
+        tablaTareas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Tarea", "Prioridad", "Estado", "Categoria", "Fecha limite"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaTareas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(411, 411, 411)
+                        .addComponent(lblMisTareas))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addComponent(btnNuevaTarea)
+                        .addGap(70, 70, 70)
+                        .addComponent(btnFiltrar)))
+                .addContainerGap(340, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(lblMisTareas, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnNuevaTarea, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnFiltrar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnNuevaTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaTareaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNuevaTareaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,5 +137,10 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFiltrar;
+    private javax.swing.JButton btnNuevaTarea;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblMisTareas;
+    private javax.swing.JTable tablaTareas;
     // End of variables declaration//GEN-END:variables
 }
