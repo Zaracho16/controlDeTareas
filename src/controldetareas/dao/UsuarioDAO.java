@@ -61,4 +61,29 @@ public class UsuarioDAO {
         
     }
     
+    public boolean crearUsuario(String nombre, String email, String password) {
+        
+        String sql = "INSERT INTO usuario (nombre, email, password) VALUES (?, ?, ?)";
+        
+        try (Connection conexion = Conexion.conectar(); PreparedStatement sentencia = conexion.prepareStatement(sql)) {
+            
+            sentencia.setString(1, nombre);
+            sentencia.setString(2, email);
+            sentencia.setString(3, password);
+            
+            sentencia.executeUpdate();
+            
+            return true;
+            
+        } catch (SQLException e) {
+            
+            System.out.println("Error al crear el usuario");
+            e.printStackTrace();
+            
+            return false;
+            
+        }
+        
+    }
+    
 }
