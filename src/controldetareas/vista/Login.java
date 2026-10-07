@@ -76,6 +76,7 @@ public class Login extends javax.swing.JFrame {
 
         btnCrearCuenta.setText("Crear cuenta");
         btnCrearCuenta.setName("btnCrearCuenta"); // NOI18N
+        btnCrearCuenta.addActionListener(this::btnCrearCuentaActionPerformed);
 
         btnSalirLogin.setText("Salir");
         btnSalirLogin.setName("Salir"); // NOI18N
@@ -97,18 +98,17 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(lblIniciarSesion)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(btnSalirLogin)))
-                .addContainerGap(115, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnEntrar)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblCorreo)
-                        .addComponent(txtCorreo)
-                        .addComponent(lblPassword)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnSalirLogin))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnEntrar)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblCorreo)
+                                .addComponent(txtCorreo)
+                                .addComponent(lblPassword)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)))))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,6 +172,16 @@ public class Login extends javax.swing.JFrame {
     private void btnSalirLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirLoginActionPerformed
             System.exit(0);
     }//GEN-LAST:event_btnSalirLoginActionPerformed
+
+    private void btnCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCuentaActionPerformed
+        
+        CrearCuenta crearCuenta = new CrearCuenta();
+        
+        crearCuenta.setVisible(true);
+        
+        this.dispose();
+        
+    }//GEN-LAST:event_btnCrearCuentaActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> new Login().setVisible(true));
