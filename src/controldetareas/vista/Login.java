@@ -11,6 +11,8 @@ public class Login extends javax.swing.JFrame {
 
     public Login() {
         initComponents();
+        
+        setResizable(false);
     }
 
     /**
@@ -29,7 +31,6 @@ public class Login extends javax.swing.JFrame {
         jProgressBar1 = new javax.swing.JProgressBar();
         jTextField2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        lblControDeTareas = new javax.swing.JLabel();
         lblIniciarSesion = new javax.swing.JLabel();
         lblCorreo = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
@@ -38,6 +39,8 @@ public class Login extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         btnCrearCuenta = new javax.swing.JButton();
         btnSalirLogin = new javax.swing.JButton();
+        lblFondoImagenLogin = new javax.swing.JLabel();
+        lblSubtitulo = new javax.swing.JLabel();
 
         jLabel4.setText("Correo");
 
@@ -52,86 +55,105 @@ public class Login extends javax.swing.JFrame {
         jLabel6.setText("ada");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(243, 244, 246));
 
-        lblControDeTareas.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
-        lblControDeTareas.setText("Control de tareas");
-
-        lblIniciarSesion.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        lblIniciarSesion.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        lblIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
         lblIniciarSesion.setText("Iniciar Sesión");
 
+        lblCorreo.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        lblCorreo.setForeground(new java.awt.Color(102, 102, 102));
         lblCorreo.setText("Correo");
 
+        txtCorreo.setMargin(new java.awt.Insets(3, 7, 3, 7));
         txtCorreo.setName("txtCorreo"); // NOI18N
         txtCorreo.addActionListener(this::txtCorreoActionPerformed);
 
+        lblPassword.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(102, 102, 102));
         lblPassword.setText("Contraseña");
 
-        btnEntrar.setBackground(new java.awt.Color(0, 153, 51));
+        btnEntrar.setBackground(new java.awt.Color(0, 153, 204));
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEntrar.setText("Entrar");
+        btnEntrar.setText("Iniciar sesión");
+        btnEntrar.setToolTipText("");
+        btnEntrar.setMargin(new java.awt.Insets(6, 18, 6, 18));
         btnEntrar.setName("btnIniciarSesion"); // NOI18N
         btnEntrar.addActionListener(this::btnEntrarActionPerformed);
 
+        txtPassword.setMargin(new java.awt.Insets(3, 7, 3, 7));
         txtPassword.setName("txtContraseña"); // NOI18N
+        txtPassword.addActionListener(this::txtPasswordActionPerformed);
 
+        btnCrearCuenta.setBackground(new java.awt.Color(102, 255, 51));
+        btnCrearCuenta.setForeground(new java.awt.Color(0, 0, 0));
         btnCrearCuenta.setText("Crear cuenta");
         btnCrearCuenta.setName("btnCrearCuenta"); // NOI18N
         btnCrearCuenta.addActionListener(this::btnCrearCuentaActionPerformed);
 
+        btnSalirLogin.setBackground(new java.awt.Color(255, 102, 102));
+        btnSalirLogin.setForeground(new java.awt.Color(0, 0, 0));
         btnSalirLogin.setText("Salir");
         btnSalirLogin.setName("Salir"); // NOI18N
         btnSalirLogin.addActionListener(this::btnSalirLoginActionPerformed);
+
+        lblFondoImagenLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/controldetareas/recursos/fondo-login.jpeg"))); // NOI18N
+
+        lblSubtitulo.setForeground(new java.awt.Color(153, 153, 153));
+        lblSubtitulo.setText("Ingresa a tu cuenta para gestionar tus tareas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(lblFondoImagenLogin)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(lblControDeTareas))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
+                        .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnCrearCuenta)
-                            .addComponent(lblIniciarSesion)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(btnSalirLogin))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnEntrar)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnCrearCuenta)
+                                .addGap(58, 58, 58)
+                                .addComponent(btnSalirLogin))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lblCorreo)
-                                .addComponent(txtCorreo)
                                 .addComponent(lblPassword)
-                                .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)))))
-                .addContainerGap(98, Short.MAX_VALUE))
+                                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                                    .addComponent(txtCorreo, javax.swing.GroupLayout.Alignment.LEADING))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSubtitulo))
+                        .addContainerGap(12, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(lblControDeTareas, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(38, 38, 38)
                 .addComponent(lblIniciarSesion)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSubtitulo)
+                .addGap(56, 56, 56)
                 .addComponent(lblCorreo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(lblPassword)
-                .addGap(17, 17, 17)
+                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
+                .addGap(46, 46, 46)
                 .addComponent(btnEntrar)
-                .addGap(35, 35, 35)
-                .addComponent(btnCrearCuenta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(btnSalirLogin)
-                .addGap(19, 19, 19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCrearCuenta)
+                    .addComponent(btnSalirLogin))
+                .addGap(69, 69, 69))
+            .addComponent(lblFondoImagenLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         pack();
@@ -183,6 +205,10 @@ public class Login extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCrearCuentaActionPerformed
 
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> new Login().setVisible(true));
     }
@@ -198,10 +224,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JLabel lblControDeTareas;
     private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblFondoImagenLogin;
     private javax.swing.JLabel lblIniciarSesion;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblSubtitulo;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
