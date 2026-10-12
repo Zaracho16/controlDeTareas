@@ -65,7 +65,7 @@ public class Login extends javax.swing.JFrame {
         lblCorreo.setForeground(new java.awt.Color(102, 102, 102));
         lblCorreo.setText("Correo");
 
-        txtCorreo.setMargin(new java.awt.Insets(3, 7, 3, 7));
+        txtCorreo.setMargin(new java.awt.Insets(4, 8, 4, 8));
         txtCorreo.setName("txtCorreo"); // NOI18N
         txtCorreo.addActionListener(this::txtCorreoActionPerformed);
 
@@ -81,18 +81,18 @@ public class Login extends javax.swing.JFrame {
         btnEntrar.setName("btnIniciarSesion"); // NOI18N
         btnEntrar.addActionListener(this::btnEntrarActionPerformed);
 
-        txtPassword.setMargin(new java.awt.Insets(3, 7, 3, 7));
+        txtPassword.setMargin(new java.awt.Insets(4, 8, 4, 8));
         txtPassword.setName("txtContraseña"); // NOI18N
         txtPassword.addActionListener(this::txtPasswordActionPerformed);
 
         btnCrearCuenta.setBackground(new java.awt.Color(102, 255, 51));
-        btnCrearCuenta.setForeground(new java.awt.Color(0, 0, 0));
+        btnCrearCuenta.setForeground(new java.awt.Color(51, 51, 51));
         btnCrearCuenta.setText("Crear cuenta");
         btnCrearCuenta.setName("btnCrearCuenta"); // NOI18N
         btnCrearCuenta.addActionListener(this::btnCrearCuentaActionPerformed);
 
         btnSalirLogin.setBackground(new java.awt.Color(255, 102, 102));
-        btnSalirLogin.setForeground(new java.awt.Color(0, 0, 0));
+        btnSalirLogin.setForeground(new java.awt.Color(51, 51, 51));
         btnSalirLogin.setText("Salir");
         btnSalirLogin.setName("Salir"); // NOI18N
         btnSalirLogin.addActionListener(this::btnSalirLoginActionPerformed);
@@ -141,14 +141,14 @@ public class Login extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addComponent(lblCorreo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addComponent(btnEntrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrearCuenta)
                     .addComponent(btnSalirLogin))

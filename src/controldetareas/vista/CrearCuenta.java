@@ -11,6 +11,8 @@ public class CrearCuenta extends javax.swing.JFrame {
 
     public CrearCuenta() {
         initComponents();
+        
+        setResizable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -26,88 +28,105 @@ public class CrearCuenta extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         btnCrearCuenta = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
+        lblIImagenFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         lblCrearCuenta.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         lblCrearCuenta.setText("Crear Cuenta");
 
+        lblNombre.setForeground(new java.awt.Color(102, 102, 102));
         lblNombre.setText("Nombre");
 
         txtNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtNombre.setMargin(new java.awt.Insets(4, 8, 4, 8));
         txtNombre.setMinimumSize(new java.awt.Dimension(64, 26));
         txtNombre.setPreferredSize(new java.awt.Dimension(100, 25));
         txtNombre.setRequestFocusEnabled(false);
 
+        lblCorreo.setForeground(new java.awt.Color(102, 102, 102));
         lblCorreo.setText("Correo");
 
+        txtCorreo.setMargin(new java.awt.Insets(4, 8, 4, 8));
         txtCorreo.setPreferredSize(new java.awt.Dimension(100, 25));
         txtCorreo.addActionListener(this::txtCorreoActionPerformed);
 
+        lblPassword.setForeground(new java.awt.Color(102, 102, 102));
         lblPassword.setText("Contraseña");
 
+        txtPassword.setMargin(new java.awt.Insets(4, 8, 4, 8));
         txtPassword.setPreferredSize(new java.awt.Dimension(100, 25));
         txtPassword.addActionListener(this::txtPasswordActionPerformed);
 
+        btnCrearCuenta.setBackground(new java.awt.Color(0, 153, 204));
+        btnCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
         btnCrearCuenta.setText("Crear");
+        btnCrearCuenta.setMargin(new java.awt.Insets(6, 18, 6, 18));
+        btnCrearCuenta.setMaximumSize(new java.awt.Dimension(114, 30));
+        btnCrearCuenta.setMinimumSize(new java.awt.Dimension(114, 30));
+        btnCrearCuenta.setPreferredSize(new java.awt.Dimension(114, 30));
         btnCrearCuenta.addActionListener(this::btnCrearCuentaActionPerformed);
 
         btnVolver.setText("Volver");
         btnVolver.addActionListener(this::btnVolverActionPerformed);
+
+        lblIImagenFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/controldetareas/recursos/fondo-login.jpeg"))); // NOI18N
+        lblIImagenFondo.setText("jLabel1");
+        lblIImagenFondo.setPreferredSize(new java.awt.Dimension(410, 611));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(lblIImagenFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPassword)
-                            .addComponent(lblCorreo)
-                            .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(btnCrearCuenta)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 95, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnVolver)
-                        .addGap(42, 42, 42))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(110, 110, 110))))
+                        .addGap(17, 17, 17))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCorreo)
+                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPassword)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(btnCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(63, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
+                .addGap(40, 40, 40)
                 .addComponent(lblCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCorreo)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addComponent(btnCrearCuenta)
+                .addGap(27, 27, 27)
+                .addComponent(lblNombre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(lblCorreo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(lblPassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(btnCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(btnVolver)
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addGap(52, 52, 52))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblIImagenFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -186,6 +205,7 @@ public class CrearCuenta extends javax.swing.JFrame {
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblCrearCuenta;
+    private javax.swing.JLabel lblIImagenFondo;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JTextField txtCorreo;
