@@ -162,11 +162,16 @@ public class Login extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         
         String correo = txtCorreo.getText();
-        String contraseña = new String(txtPassword.getPassword());
+        String password = new String(txtPassword.getPassword());
+        
+        if(correo.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debes completar todos los campos");
+            return;
+        }
         
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         
-        boolean credencialesCorrectas = usuarioDAO.validacionCredenciales(correo, contraseña);
+        boolean credencialesCorrectas = usuarioDAO.validacionCredenciales(correo, password);
         
         if(credencialesCorrectas) {
             
