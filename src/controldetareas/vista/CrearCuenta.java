@@ -142,6 +142,11 @@ public class CrearCuenta extends javax.swing.JFrame {
         String email = txtCorreo.getText();
         String password = new String(txtPassword.getPassword());
         
+        if(nombre.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debes completar todos los campos");
+            return;
+        }
+        
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         
         boolean usuarioCreado = usuarioDAO.crearUsuario(nombre, email, password);
@@ -150,15 +155,15 @@ public class CrearCuenta extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(this, "Cuenta creada correctamente");
             
+            txtNombre.setText("");
+            txtCorreo.setText("");
+            txtPassword.setText("");
+            
         } else {
             
             JOptionPane.showMessageDialog(this, "Error al crear la cuenta");
             
         }
-        
-        txtNombre.setText("");
-        txtCorreo.setText("");
-        txtPassword.setText("");
         
     }//GEN-LAST:event_btnCrearCuentaActionPerformed
 
