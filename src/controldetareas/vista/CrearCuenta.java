@@ -10,9 +10,13 @@ public class CrearCuenta extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CrearCuenta.class.getName());
 
     public CrearCuenta() {
+        
         initComponents();
         
         setResizable(false);
+        
+        setLocationRelativeTo(null);
+        
     }
 
     @SuppressWarnings("unchecked")
