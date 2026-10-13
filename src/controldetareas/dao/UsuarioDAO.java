@@ -2,6 +2,7 @@
 package controldetareas.dao;
 
 import controldetareas.dbConexion.Conexion;
+import controldetareas.modelo.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -61,6 +62,48 @@ public class UsuarioDAO {
         
     }
     
+    public Usuario obtenerUsuario(String email, String password) {
+        
+        String sql = "SELECT id, nombre, email, password" + " FROM usuario WHERE email = ? AND password = ? ";
+        
+        try (Connection conexion = Conexion.conectar(); PreparedStatement sentencia = conexion.prepareStatement(sql)) {
+            
+            sentencia.setString(1, email);
+            sentencia.setString(2, password);
+            
+            try (ResultSet resultado = sentencia.executeQuery()) {
+            
+                if (resultado.next()) {
+                    
+                    Usuario usuario = new Usuario(
+                            resultado.getInt("id"),
+                            resultado.getString("nombre"),
+                            resultado.getString("email"),
+                            resultado.getString("password")
+                    );
+                    
+                    return usuario;
+                    
+                }
+                
+            } catch (SQLException e) {
+                System.out.println("Error al obtener usuario");
+                e.printStackTrace();
+            }
+            
+            return null;
+            
+        } catch (SQLException e) {
+            
+            System.out.println("Error al conectarse a la base de datos");
+            e.printStackTrace();
+            
+        }
+        
+        return null;
+        
+    }
+    
     public boolean crearUsuario(String nombre, String email, String password) {
         
         String sql = "INSERT INTO usuario (nombre, email, password) VALUES (?, ?, ?)";
@@ -85,5 +128,6 @@ public class UsuarioDAO {
         }
         
     }
+    
     
 }
