@@ -3,6 +3,7 @@ package controldetareas.vista;
 
 import controldetareas.dao.TareaDAO;
 import controldetareas.modelo.Tarea;
+import controldetareas.modelo.Usuario;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -10,16 +11,19 @@ public class Inicio extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Inicio.class.getName());
 
+    private Usuario usuario;
 
-    public Inicio() {
+    public Inicio(Usuario usuario) {
         
         initComponents();
+        
+        this.usuario = usuario;
         
         DefaultTableModel modelo = (DefaultTableModel) tablaTareas.getModel();
         
         TareaDAO tareaDAO = new TareaDAO();
         
-        List<Tarea> tareas = tareaDAO.listarTareas(1);
+        List<Tarea> tareas = tareaDAO.listarTareas(usuario.getId());
         
         for (Tarea tarea : tareas) {
             
@@ -111,30 +115,6 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNuevaTareaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Inicio().setVisible(true));
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFiltrar;

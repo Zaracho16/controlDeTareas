@@ -2,6 +2,7 @@
 package controldetareas.vista;
 
 import controldetareas.dao.UsuarioDAO;
+import controldetareas.modelo.Usuario;
 import javax.swing.JOptionPane;
 
 
@@ -171,11 +172,11 @@ public class Login extends javax.swing.JFrame {
         
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         
-        boolean credencialesCorrectas = usuarioDAO.validacionCredenciales(correo, password);
-        
-        if(credencialesCorrectas) {
+        Usuario usuario = usuarioDAO.obtenerUsuario(correo, password);
+ 
+        if(usuario != null) {
             
-            Inicio inicio = new Inicio();
+            Inicio inicio = new Inicio(usuario);
             inicio.setVisible(true);
             
             this.dispose();
