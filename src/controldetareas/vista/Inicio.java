@@ -21,24 +21,27 @@ public class Inicio extends javax.swing.JFrame {
         
         this.usuario = usuario;
         
+        cargarTareas();
+        
+    }
+    
+    public void cargarTareas() {
         DefaultTableModel modelo = (DefaultTableModel) tablaTareas.getModel();
-        
+
+        modelo.setRowCount(0);
+
         TareaDAO tareaDAO = new TareaDAO();
-        
         List<Tarea> tareas = tareaDAO.listarTareas(usuario.getId());
-        
+
         for (Tarea tarea : tareas) {
-            
-            modelo.addRow(new Object[] {
+            modelo.addRow(new Object[]{
                 tarea.getTitulo(),
-                tarea.getPrioridad(),
+                tarea.getNombrePrioridad(),
                 tarea.getNombreEstado(),
                 tarea.getNombreCategoria(),
                 tarea.getFechaLimite()
             });
-            
         }
-        
     }
 
     /**
@@ -264,10 +267,11 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(panelFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNuevaTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLimpiarFiltro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtBuscarPorTitulo)
-                    .addComponent(lblLupaIcono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblLupaIcono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnLimpiarFiltro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtBuscarPorTitulo)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(13, 13, 13)
@@ -294,7 +298,8 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarTareaActionPerformed
 
     private void btnNuevaTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaTareaActionPerformed
-        // TODO add your handling code here:
+        NuevaTarea ventana = new NuevaTarea(usuario, this);
+        ventana.setVisible(true);  
     }//GEN-LAST:event_btnNuevaTareaActionPerformed
 
 

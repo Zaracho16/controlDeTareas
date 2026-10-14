@@ -9,9 +9,11 @@ public class Tarea {
     private int idUsuario;
     private int idCategoria;
     private int idEstado;
+    private int idPrioridad;
     
     private String nombreCategoria;
     private String nombreEstado;
+    private String nombrePrioridad;
     
     private String titulo;
     private String descripcion;
@@ -22,11 +24,12 @@ public class Tarea {
     
     private boolean completada;
     
-    public Tarea(int idTareas, int idUsuario, int idCategoria, int idEstado, String titulo, String descripcion, String prioridad, Date fechaLimite, Date fechaCreacion, boolean completada) {
+    public Tarea(int idTareas, int idUsuario, int idCategoria, int idEstado, int idPrioridad , String titulo, String descripcion, Date fechaLimite, Date fechaCreacion, boolean completada) {
         this.idTareas = idTareas;
         this.idUsuario = idUsuario;
         this.idCategoria = idCategoria;
         this.idEstado = idEstado;
+        this.idPrioridad = idPrioridad;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.prioridad = prioridad;
@@ -67,6 +70,22 @@ public class Tarea {
         this.idEstado = idEstado;
     }
 
+    public int getIdPrioridad() {
+        return idPrioridad;
+    }
+
+    public void setIdPrioridad(int idPrioridad) {
+        this.idPrioridad = idPrioridad;
+    }
+
+    public String getNombrePrioridad() {
+        return nombrePrioridad;
+    }
+
+    public void setNombrePrioridad(String nombrePrioridad) {
+        this.nombrePrioridad = nombrePrioridad;
+    }
+
     public String getNombreCategoria() {
         return nombreCategoria;
     }
@@ -82,7 +101,6 @@ public class Tarea {
     public void setNombreEstado(String nombreEstado) {
         this.nombreEstado = nombreEstado;
     }
-    
     
 
     public String getTitulo() {
