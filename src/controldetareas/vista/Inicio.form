@@ -68,10 +68,12 @@
                   <Component id="btnNuevaTarea" min="-2" pref="60" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnLimpiarFiltro" alignment="3" max="32767" attributes="0"/>
-                  <Component id="txtBuscarPorTitulo" alignment="3" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblLupaIcono" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnLimpiarFiltro" alignment="3" max="32767" attributes="0"/>
+                      <Component id="txtBuscarPorTitulo" alignment="3" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
