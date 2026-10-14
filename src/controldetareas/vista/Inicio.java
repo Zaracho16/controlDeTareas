@@ -17,6 +17,8 @@ public class Inicio extends javax.swing.JFrame {
         
         initComponents();
         
+        setLocationRelativeTo(null);
+        
         this.usuario = usuario;
         
         DefaultTableModel modelo = (DefaultTableModel) tablaTareas.getModel();
@@ -48,21 +50,30 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblMisTareas = new javax.swing.JLabel();
-        btnNuevaTarea = new javax.swing.JButton();
-        btnFiltrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaTareas = new javax.swing.JTable();
+        panelFiltro = new javax.swing.JPanel();
+        cbEstado = new javax.swing.JComboBox<>();
+        lblEstadoFiltro = new javax.swing.JLabel();
+        lblCategoriaFiltro = new javax.swing.JLabel();
+        cbCategoria = new javax.swing.JComboBox<>();
+        lblPrioridadFiltro = new javax.swing.JLabel();
+        cbPrioridad = new javax.swing.JComboBox<>();
+        lblFechaLimiteFiltro = new javax.swing.JLabel();
+        cbFechaLimite = new javax.swing.JComboBox<>();
+        panelAcciones = new javax.swing.JPanel();
+        btnVerDetallesTarea = new javax.swing.JButton();
+        btnEditarTarea = new javax.swing.JButton();
+        btnCompletadoTarea = new javax.swing.JButton();
+        btnEliminarTarea = new javax.swing.JButton();
+        lblAcciones = new javax.swing.JLabel();
+        txtBuscarPorTitulo = new javax.swing.JTextField();
+        lblTitulo = new javax.swing.JLabel();
+        lblLupaIcono = new javax.swing.JLabel();
+        btnLimpiarFiltro = new javax.swing.JButton();
+        btnNuevaTarea = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lblMisTareas.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
-        lblMisTareas.setText("MIS TAREAS");
-
-        btnNuevaTarea.setText("Nueva tarea");
-        btnNuevaTarea.addActionListener(this::btnNuevaTareaActionPerformed);
-
-        btnFiltrar.setText("Filtrar");
 
         tablaTareas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -74,6 +85,146 @@ public class Inicio extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tablaTareas);
 
+        cbEstado.setBackground(new java.awt.Color(214, 234, 248));
+        cbEstado.setForeground(new java.awt.Color(51, 51, 51));
+        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Pendiente", "En progreso", "Completada" }));
+
+        lblEstadoFiltro.setText("Estado");
+
+        lblCategoriaFiltro.setText("Categoria");
+
+        cbCategoria.setBackground(new java.awt.Color(214, 234, 248));
+        cbCategoria.setForeground(new java.awt.Color(51, 51, 51));
+        cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas", "Facultad", "Personal", "Trabajo" }));
+
+        lblPrioridadFiltro.setText("Prioridad");
+
+        cbPrioridad.setBackground(new java.awt.Color(214, 234, 248));
+        cbPrioridad.setForeground(new java.awt.Color(51, 51, 51));
+        cbPrioridad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Alta", "Media", "Baja" }));
+
+        lblFechaLimiteFiltro.setText("Fecha límite");
+
+        cbFechaLimite.setBackground(new java.awt.Color(214, 234, 248));
+        cbFechaLimite.setForeground(new java.awt.Color(51, 51, 51));
+        cbFechaLimite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout panelFiltroLayout = new javax.swing.GroupLayout(panelFiltro);
+        panelFiltro.setLayout(panelFiltroLayout);
+        panelFiltroLayout.setHorizontalGroup(
+            panelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelFiltroLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(panelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblCategoriaFiltro)
+                    .addComponent(lblEstadoFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbEstado, 0, 236, Short.MAX_VALUE)
+                    .addComponent(cbCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
+                .addGroup(panelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblPrioridadFiltro)
+                        .addComponent(cbPrioridad, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblFechaLimiteFiltro))
+                    .addComponent(cbFechaLimite, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26))
+        );
+        panelFiltroLayout.setVerticalGroup(
+            panelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelFiltroLayout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addGroup(panelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEstadoFiltro)
+                    .addComponent(lblPrioridadFiltro))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbPrioridad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCategoriaFiltro)
+                    .addComponent(lblFechaLimiteFiltro))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbFechaLimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        btnVerDetallesTarea.setBackground(new java.awt.Color(102, 163, 163));
+        btnVerDetallesTarea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/controldetareas/recursos/ojo-detalles (2).png"))); // NOI18N
+        btnVerDetallesTarea.setText("Ver detalles");
+        btnVerDetallesTarea.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVerDetallesTarea.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnVerDetallesTarea.addActionListener(this::btnVerDetallesTareaActionPerformed);
+
+        btnEditarTarea.setBackground(new java.awt.Color(179, 179, 77));
+        btnEditarTarea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/controldetareas/recursos/editarLapiz (1).png"))); // NOI18N
+        btnEditarTarea.setText("Editar");
+        btnEditarTarea.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEditarTarea.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEditarTarea.addActionListener(this::btnEditarTareaActionPerformed);
+
+        btnCompletadoTarea.setBackground(new java.awt.Color(51, 173, 92));
+        btnCompletadoTarea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/controldetareas/recursos/checkk (1).png"))); // NOI18N
+        btnCompletadoTarea.setText("Completar");
+        btnCompletadoTarea.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCompletadoTarea.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        btnEliminarTarea.setBackground(new java.awt.Color(230, 92, 92));
+        btnEliminarTarea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/controldetareas/recursos/basurero (4).png"))); // NOI18N
+        btnEliminarTarea.setText("Eliminar");
+        btnEliminarTarea.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEliminarTarea.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        lblAcciones.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        lblAcciones.setText("Acciones");
+
+        javax.swing.GroupLayout panelAccionesLayout = new javax.swing.GroupLayout(panelAcciones);
+        panelAcciones.setLayout(panelAccionesLayout);
+        panelAccionesLayout.setHorizontalGroup(
+            panelAccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAccionesLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(panelAccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblAcciones, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVerDetallesTarea, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(btnEditarTarea, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(btnCompletadoTarea, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(btnEliminarTarea, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        panelAccionesLayout.setVerticalGroup(
+            panelAccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAccionesLayout.createSequentialGroup()
+                .addComponent(lblAcciones)
+                .addGap(10, 10, 10)
+                .addComponent(btnVerDetallesTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(btnEditarTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCompletadoTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnEliminarTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+
+        txtBuscarPorTitulo.setText("Buscar por titulo...");
+        txtBuscarPorTitulo.setMargin(new java.awt.Insets(4, 8, 4, 8));
+        txtBuscarPorTitulo.addActionListener(this::txtBuscarPorTituloActionPerformed);
+
+        lblTitulo.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        lblTitulo.setText("Control de tareas");
+
+        lblLupaIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/controldetareas/recursos/lupa (1).png"))); // NOI18N
+
+        btnLimpiarFiltro.setBackground(new java.awt.Color(153, 153, 153));
+        btnLimpiarFiltro.setText("Limpiar");
+
+        btnNuevaTarea.setBackground(new java.awt.Color(51, 133, 230));
+        btnNuevaTarea.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        btnNuevaTarea.setText("+   Nueva Tarea");
+        btnNuevaTarea.addActionListener(this::btnNuevaTareaActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,35 +232,66 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(411, 411, 411)
-                        .addComponent(lblMisTareas))
+                        .addGap(33, 33, 33)
+                        .addComponent(lblLupaIcono)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(panelAcciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtBuscarPorTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(btnLimpiarFiltro))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(btnNuevaTarea)
-                        .addGap(70, 70, 70)
-                        .addComponent(btnFiltrar)))
-                .addContainerGap(340, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(108, 108, 108))
+                        .addGap(28, 28, 28)
+                        .addComponent(panelFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(btnNuevaTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(lblMisTareas, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panelFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNuevaTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLimpiarFiltro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtBuscarPorTitulo)
+                    .addComponent(lblLupaIcono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnNuevaTarea, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnFiltrar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(panelAcciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtBuscarPorTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarPorTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarPorTituloActionPerformed
+
+    private void btnVerDetallesTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetallesTareaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVerDetallesTareaActionPerformed
+
+    private void btnEditarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarTareaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarTareaActionPerformed
 
     private void btnNuevaTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaTareaActionPerformed
         // TODO add your handling code here:
@@ -117,10 +299,27 @@ public class Inicio extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnFiltrar;
+    private javax.swing.JButton btnCompletadoTarea;
+    private javax.swing.JButton btnEditarTarea;
+    private javax.swing.JButton btnEliminarTarea;
+    private javax.swing.JButton btnLimpiarFiltro;
     private javax.swing.JButton btnNuevaTarea;
+    private javax.swing.JButton btnVerDetallesTarea;
+    private javax.swing.JComboBox<String> cbCategoria;
+    private javax.swing.JComboBox<String> cbEstado;
+    private javax.swing.JComboBox<String> cbFechaLimite;
+    private javax.swing.JComboBox<String> cbPrioridad;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblMisTareas;
+    private javax.swing.JLabel lblAcciones;
+    private javax.swing.JLabel lblCategoriaFiltro;
+    private javax.swing.JLabel lblEstadoFiltro;
+    private javax.swing.JLabel lblFechaLimiteFiltro;
+    private javax.swing.JLabel lblLupaIcono;
+    private javax.swing.JLabel lblPrioridadFiltro;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel panelAcciones;
+    private javax.swing.JPanel panelFiltro;
     private javax.swing.JTable tablaTareas;
+    private javax.swing.JTextField txtBuscarPorTitulo;
     // End of variables declaration//GEN-END:variables
 }
