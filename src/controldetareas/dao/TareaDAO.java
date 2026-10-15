@@ -111,4 +111,24 @@ public class TareaDAO {
 
     }
     
+    public boolean eliminarTarea(int idTarea) {
+        
+        String sql = "DELETE FROM tareas WHERE id_tareas = ?";
+        
+        try (Connection conexion = Conexion.conectar(); PreparedStatement sentencia = conexion.prepareStatement(sql)) {
+            
+            sentencia.setInt(1, idTarea);
+            
+            return sentencia.executeUpdate() > 0;
+            
+        } catch (SQLException e) {
+            
+            System.out.println("Error al eliminar la tarea");
+            e.printStackTrace();
+            return false;
+                
+        }
+        
+    }
+    
 }
