@@ -239,8 +239,6 @@ public class NuevaTarea extends javax.swing.JFrame {
         }
 
         controldetareas.dao.TareaDAO tareaDAO = new controldetareas.dao.TareaDAO();
-        
-        System.out.println("ID de prioridad seleccionado: " + idPrioridad);
 
         boolean guardado = tareaDAO.crearTarea(
                 usuario.getId(),

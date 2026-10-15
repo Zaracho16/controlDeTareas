@@ -29,12 +29,18 @@ public class Inicio extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) tablaTareas.getModel();
 
         modelo.setRowCount(0);
+        
+        // "ocultamos" la columna de numero id en la tabla, asi podemos recuperar el id a eliminar, modificar etc sin tener que mostrarlo en la interfaz
+        tablaTareas.getColumnModel().getColumn(0).setMinWidth(0);
+        tablaTareas.getColumnModel().getColumn(0).setMaxWidth(0);
+        tablaTareas.getColumnModel().getColumn(0).setWidth(0);
 
         TareaDAO tareaDAO = new TareaDAO();
         List<Tarea> tareas = tareaDAO.listarTareas(usuario.getId());
 
         for (Tarea tarea : tareas) {
             modelo.addRow(new Object[]{
+                tarea.getIdTareas(),
                 tarea.getTitulo(),
                 tarea.getNombrePrioridad(),
                 tarea.getNombreEstado(),
@@ -83,7 +89,7 @@ public class Inicio extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Tarea", "Prioridad", "Estado", "Categoria", "Fecha limite"
+                "ID", "Tarea", "Prioridad", "Estado", "Categoria", "Fecha limite"
             }
         ));
         jScrollPane1.setViewportView(tablaTareas);
@@ -178,6 +184,7 @@ public class Inicio extends javax.swing.JFrame {
         btnEliminarTarea.setText("Eliminar");
         btnEliminarTarea.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnEliminarTarea.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEliminarTarea.addActionListener(this::btnEliminarTareaActionPerformed);
 
         lblAcciones.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         lblAcciones.setText("Acciones");
@@ -240,7 +247,7 @@ public class Inicio extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(panelAcciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -255,7 +262,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,6 +308,64 @@ public class Inicio extends javax.swing.JFrame {
         NuevaTarea ventana = new NuevaTarea(usuario, this);
         ventana.setVisible(true);  
     }//GEN-LAST:event_btnNuevaTareaActionPerformed
+
+    private void btnEliminarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTareaActionPerformed
+        
+        int filaSeleccionada = tablaTareas.getSelectedRow();
+        
+        if (filaSeleccionada == -1) {
+            
+            javax.swing.JOptionPane.showMessageDialog (
+                    this,
+                    "Seleccione una tarea para eliminar",
+                    "Aviso",
+                    javax.swing.JOptionPane.WARNING_MESSAGE
+            );
+            
+            return;
+            
+        }
+        
+        int confirmacionEliminar = javax.swing.JOptionPane.showConfirmDialog (
+               this, 
+               "¿Eliminar tarea?",
+               "Confirmar eliminación",
+               javax.swing.JOptionPane.YES_NO_OPTION,
+               javax.swing.JOptionPane.QUESTION_MESSAGE
+        );
+        
+        if (confirmacionEliminar != javax.swing.JOptionPane.YES_OPTION) {
+            return;
+        } 
+        
+        int idTarea = (int) tablaTareas.getValueAt(filaSeleccionada, 0);
+        
+        TareaDAO tareaDAO = new TareaDAO();
+        boolean eliminada = tareaDAO.eliminarTarea(idTarea);
+        
+        if(eliminada) {
+            
+            javax.swing.JOptionPane.showMessageDialog (
+                    this, 
+                    "La tarea se elimino", 
+                    "Éxito", 
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE
+            );
+            
+        } else {
+            
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Error al eliminar la tarea",
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE
+            );
+            
+        }
+        
+        cargarTareas();
+        
+    }//GEN-LAST:event_btnEliminarTareaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
