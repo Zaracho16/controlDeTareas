@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.mindrot.jbcrypt.BCrypt;
 
 
 public class UsuarioDAO {
@@ -64,25 +65,30 @@ public class UsuarioDAO {
     
     public Usuario obtenerUsuario(String email, String password) {
         
-        String sql = "SELECT id, nombre, email, password" + " FROM usuario WHERE email = ? AND password = ? ";
+        String sql = "SELECT id, nombre, email, password" + " FROM usuario WHERE email = ?";
         
         try (Connection conexion = Conexion.conectar(); PreparedStatement sentencia = conexion.prepareStatement(sql)) {
             
             sentencia.setString(1, email);
-            sentencia.setString(2, password);
             
             try (ResultSet resultado = sentencia.executeQuery()) {
             
                 if (resultado.next()) {
                     
-                    Usuario usuario = new Usuario(
-                            resultado.getInt("id"),
-                            resultado.getString("nombre"),
-                            resultado.getString("email"),
-                            resultado.getString("password")
-                    );
+                    String passwordHash = resultado.getString("password");
                     
-                    return usuario;
+                    if(BCrypt.checkpw(password, passwordHash)) {
+                        
+                        Usuario usuario = new Usuario(
+                                resultado.getInt("id"),
+                                resultado.getString("nombre"),
+                                resultado.getString("email"),
+                                resultado.getString("password")
+                        );
+                        
+                        return usuario;
+                        
+                    }
                     
                 }
                 
@@ -112,7 +118,9 @@ public class UsuarioDAO {
             
             sentencia.setString(1, nombre);
             sentencia.setString(2, email);
-            sentencia.setString(3, password);
+            
+            String passwordHash = BCrypt.hashpw(password, BCrypt.gensalt(12));
+            sentencia.setString(3, passwordHash);
             
             sentencia.executeUpdate();
             
