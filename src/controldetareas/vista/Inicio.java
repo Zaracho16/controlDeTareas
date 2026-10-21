@@ -240,6 +240,7 @@ public class Inicio extends javax.swing.JFrame {
         btnInfoIntegrantes.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
         btnInfoIntegrantes.setForeground(new java.awt.Color(51, 51, 51));
         btnInfoIntegrantes.setText("Desarrolladores");
+        btnInfoIntegrantes.setFocusPainted(false);
         btnInfoIntegrantes.addActionListener(this::btnInfoIntegrantesActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
