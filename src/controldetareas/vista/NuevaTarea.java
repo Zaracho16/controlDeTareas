@@ -87,6 +87,7 @@ public class NuevaTarea extends javax.swing.JFrame {
         btnGuardarTarea.addActionListener(this::btnGuardarTareaActionPerformed);
 
         btnCancelarTarea.setText("Cancelar");
+        btnCancelarTarea.addActionListener(this::btnCancelarTareaActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -262,6 +263,12 @@ public class NuevaTarea extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnGuardarTareaActionPerformed
+
+    private void btnCancelarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarTareaActionPerformed
+
+        this.dispose();
+        
+    }//GEN-LAST:event_btnCancelarTareaActionPerformed
 
 
     private void cargarCategorias() {
