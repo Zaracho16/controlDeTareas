@@ -40,6 +40,8 @@ public class InfoDesarrolladores extends javax.swing.JFrame {
         int7 = new javax.swing.JLabel();
         int8 = new javax.swing.JLabel();
         int9 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         btnAceptar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,6 +81,16 @@ public class InfoDesarrolladores extends javax.swing.JFrame {
         int9.setForeground(new java.awt.Color(0, 0, 0));
         int9.setText("Mauricio Vergara - CI 5792361");
 
+        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Tema: Control de tareas");
+
+        jLabel2.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel2.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Grupo: 1");
+
         javax.swing.GroupLayout panelInfoIntegrantesLayout = new javax.swing.GroupLayout(panelInfoIntegrantes);
         panelInfoIntegrantes.setLayout(panelInfoIntegrantesLayout);
         panelInfoIntegrantesLayout.setHorizontalGroup(
@@ -86,16 +98,21 @@ public class InfoDesarrolladores extends javax.swing.JFrame {
             .addGroup(panelInfoIntegrantesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelInfoIntegrantesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(int1)
-                    .addComponent(int2)
-                    .addComponent(int3)
-                    .addComponent(int4)
-                    .addComponent(int5)
-                    .addComponent(int6)
-                    .addComponent(int7)
-                    .addComponent(int8)
-                    .addComponent(int9))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelInfoIntegrantesLayout.createSequentialGroup()
+                        .addGroup(panelInfoIntegrantesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(int1)
+                            .addComponent(int2)
+                            .addComponent(int3)
+                            .addComponent(int4)
+                            .addComponent(int5)
+                            .addComponent(int6)
+                            .addComponent(int7)
+                            .addComponent(int8)
+                            .addComponent(int9)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 25, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         panelInfoIntegrantesLayout.setVerticalGroup(
             panelInfoIntegrantesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,7 +135,11 @@ public class InfoDesarrolladores extends javax.swing.JFrame {
                 .addComponent(int8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(int9)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnAceptar.setText("Aceptar");
@@ -130,12 +151,10 @@ public class InfoDesarrolladores extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelInfoIntegrantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblDesarrolladoPor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(117, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDesarrolladoPor)
+                    .addComponent(panelInfoIntegrantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(btnAceptar)
                 .addGap(25, 25, 25))
         );
@@ -146,7 +165,7 @@ public class InfoDesarrolladores extends javax.swing.JFrame {
                 .addComponent(lblDesarrolladoPor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelInfoIntegrantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(btnAceptar)
                 .addGap(23, 23, 23))
         );
@@ -194,6 +213,8 @@ public class InfoDesarrolladores extends javax.swing.JFrame {
     private javax.swing.JLabel int7;
     private javax.swing.JLabel int8;
     private javax.swing.JLabel int9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblDesarrolladoPor;
     private java.awt.Panel panelInfoIntegrantes;
     // End of variables declaration//GEN-END:variables
