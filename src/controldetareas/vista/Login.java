@@ -59,7 +59,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel6.setText("ada");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(243, 244, 246));
 
         lblIniciarSesion.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
