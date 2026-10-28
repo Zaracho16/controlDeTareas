@@ -44,7 +44,7 @@ public class InfoDesarrolladores extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnAceptar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
 
         lblDesarrolladoPor.setBackground(new java.awt.Color(0, 0, 0));
