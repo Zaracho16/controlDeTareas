@@ -13,56 +13,6 @@ import org.mindrot.jbcrypt.BCrypt;
 
 public class UsuarioDAO {
     
-    public void listarUsuarios() {
-        
-        String sql = "Select id, nombre, email, password FROM usuario";
-        
-        try (Connection conexion = Conexion.conectar(); 
-             PreparedStatement sentencia = conexion.prepareStatement(sql); // para ejecutar consultas sql desde java
-             ResultSet resultado = sentencia.executeQuery() ) { // contiene los resultados que devuelve postgres
-                
-                while(resultado.next()) {
-                    
-                    int id = resultado.getInt("id");
-                    String nombre = resultado.getString("nombre");
-                    String email = resultado.getString("email");
-                    
-                    System.out.println("ID: " + id + " | Nombre: " + nombre + " | Email " + email);
-                     
-                }
-            
-            } catch (SQLException e) {
-            
-                System.out.println("Error al listar usuarios");
-                e.printStackTrace();
-                
-            }
-            
-    }
-    
-    public boolean validacionCredenciales(String email, String password) {
-        
-        String sql = "SELECT id FROM usuario WHERE email = ? AND password = ?";
-        
-        try (Connection conexion = Conexion.conectar(); PreparedStatement sentencia = conexion.prepareStatement(sql)) {
-            
-            sentencia.setString(1, email);
-            sentencia.setString(2, password);
-            
-            try (ResultSet resultado = sentencia.executeQuery()){
-                return resultado.next();
-            }
-            
-        } catch (SQLException e) {
-            
-            System.out.println("Error al validar credenciales");
-            e.printStackTrace();
-            
-            return false;
-        }
-        
-    }
-    
     public Usuario obtenerUsuario(String email, String password) {
         
         String sql = "SELECT id, nombre, email, password" + " FROM usuario WHERE email = ?";
