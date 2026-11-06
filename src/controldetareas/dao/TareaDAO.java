@@ -131,4 +131,29 @@ public class TareaDAO {
         
     }
     
+    public boolean completarTarea(int idTarea) {
+        
+        String sql = """
+            UPDATE tareas
+            SET completada = TRUE,
+                id_estado = 3
+            WHERE id_tareas = ?
+        """;
+        
+        try (Connection conexion = Conexion.conectar(); PreparedStatement sentencia = conexion.prepareStatement(sql)) {
+            
+            sentencia.setInt(1, idTarea);
+            
+            return sentencia.executeUpdate() > 0;
+            
+        } catch (SQLException e) {
+            
+            System.out.println("Error al completar la tarea");
+            e.printStackTrace();
+            return false;
+            
+        }
+              
+    }
+    
 }

@@ -5,6 +5,7 @@ import controldetareas.dao.TareaDAO;
 import controldetareas.modelo.Tarea;
 import controldetareas.modelo.Usuario;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Inicio extends javax.swing.JFrame {
@@ -26,7 +27,12 @@ public class Inicio extends javax.swing.JFrame {
     }
     
     public void cargarTareas() {
+        
         DefaultTableModel modelo = (DefaultTableModel) tablaTareas.getModel();
+        
+        for (int i = 1; i <= 5; i++) {
+            tablaTareas.getColumnModel().getColumn(i).setCellRenderer(new TareaRenderer());
+        }
 
         modelo.setRowCount(0);
         
@@ -34,6 +40,11 @@ public class Inicio extends javax.swing.JFrame {
         tablaTareas.getColumnModel().getColumn(0).setMinWidth(0);
         tablaTareas.getColumnModel().getColumn(0).setMaxWidth(0);
         tablaTareas.getColumnModel().getColumn(0).setWidth(0);
+        
+        // ocultamos tambien la columna de completada
+        tablaTareas.getColumnModel().getColumn(6).setMinWidth(0);
+        tablaTareas.getColumnModel().getColumn(6).setMaxWidth(0);
+        tablaTareas.getColumnModel().getColumn(6).setWidth(0);
 
         TareaDAO tareaDAO = new TareaDAO();
         List<Tarea> tareas = tareaDAO.listarTareas(usuario.getId());
@@ -45,9 +56,11 @@ public class Inicio extends javax.swing.JFrame {
                 tarea.getNombrePrioridad(),
                 tarea.getNombreEstado(),
                 tarea.getNombreCategoria(),
-                tarea.getFechaLimite()
+                tarea.getFechaLimite(),
+                tarea.isCompletada()
             });
         }
+        
     }
 
     /**
@@ -88,9 +101,24 @@ public class Inicio extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Tarea", "Prioridad", "Estado", "Categoria", "Fecha limite"
+                "ID", "Tarea", "Prioridad", "Estado", "Categoria", "Fecha limite", "Completada"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, true, true, true, true, true, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tablaTareas);
 
         cbEstado.setBackground(new java.awt.Color(214, 234, 248));
@@ -164,6 +192,7 @@ public class Inicio extends javax.swing.JFrame {
         btnCompletadoTarea.setText("Completar");
         btnCompletadoTarea.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCompletadoTarea.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCompletadoTarea.addActionListener(this::btnCompletadoTareaActionPerformed);
 
         btnEliminarTarea.setBackground(new java.awt.Color(230, 92, 92));
         btnEliminarTarea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/controldetareas/recursos/basurero (4).png"))); // NOI18N
@@ -374,6 +403,45 @@ public class Inicio extends javax.swing.JFrame {
         InfoDesarrolladores infodesarrolladores = new InfoDesarrolladores();
         infodesarrolladores.setVisible(true);
     }//GEN-LAST:event_btnInfoIntegrantesActionPerformed
+
+    private void btnCompletadoTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletadoTareaActionPerformed
+       
+        int filaSeleccionada = tablaTareas.getSelectedRow();
+        
+        if(filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar una tarea para marcarlo como completada");
+            return;
+        }
+        
+        int idTarea = (int) tablaTareas.getValueAt(filaSeleccionada, 0);
+        
+        int confirmacion = JOptionPane.showConfirmDialog (
+                this, 
+                "¿Marcar la tarea como completada?", 
+                "Confirmar tarea",
+                JOptionPane.YES_NO_OPTION
+        );
+        
+        if(confirmacion != JOptionPane.YES_OPTION) {
+            return;
+        }
+        
+        TareaDAO tareaDAO = new TareaDAO();
+        
+        boolean tareaCompletada = tareaDAO.completarTarea(idTarea);
+        
+        if (tareaCompletada) {
+            
+            JOptionPane.showMessageDialog(this, "Tarea completada correctamente!");
+            cargarTareas();
+            
+        } else {
+            
+            JOptionPane.showMessageDialog(this, "Error al completar la tarea");
+            
+        }
+        
+    }//GEN-LAST:event_btnCompletadoTareaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
