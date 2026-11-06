@@ -2,7 +2,7 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -23,82 +23,78 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblTitulo" alignment="0" min="-2" pref="48" max="-2" attributes="0"/>
-                  <Component id="txtNombreTarea" min="-2" pref="132" max="-2" attributes="0"/>
-                  <Component id="lblDescripcion" alignment="0" min="-2" pref="76" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="lblPrioridad" min="-2" pref="66" max="-2" attributes="0"/>
-                  <Component id="cbPrioridad" max="32767" attributes="0"/>
-                  <Component id="lblCategoria" min="-2" max="-2" attributes="0"/>
-                  <Component id="cbCategoria" alignment="0" max="32767" attributes="0"/>
-                  <Component id="lblFechaLimite" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtFecha" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
-                      <Component id="btnGuardarTarea" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                      <Component id="btnCancelarTarea" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jScrollPane1" alignment="0" pref="446" max="32767" attributes="0"/>
+                          <Component id="txtNombreTarea" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="btnGuardarTarea" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                              <Component id="btnCancelarTarea" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblTitulo" alignment="0" min="-2" pref="48" max="-2" attributes="0"/>
+                          <Component id="lblDescripcion" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblFechaLimite" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPrioridad" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                                  <Component id="cbPrioridad" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="txtFecha" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblCategoria" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbCategoria" min="-2" pref="110" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
-                      <Component id="lblTituloNuevaTarea" min="-2" pref="144" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
+                      <Component id="lblTituloNuevaTarea" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="125" pref="174" max="32767" attributes="0"/>
+              <EmptySpace pref="56" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Component id="lblTituloNuevaTarea" min="-2" pref="31" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="lblPrioridad" pref="26" max="32767" attributes="0"/>
-                  <Component id="lblTitulo" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Component id="lblTituloNuevaTarea" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="lblTitulo" min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txtNombreTarea" min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="lblDescripcion" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblPrioridad" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="lblCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtNombreTarea" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cbPrioridad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbPrioridad" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
+              <Component id="lblFechaLimite" min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txtFecha" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="111" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Component id="cbCategoria" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="lblFechaLimite" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="txtFecha" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace pref="41" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnGuardarTarea" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnGuardarTarea" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="btnCancelarTarea" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -107,13 +103,16 @@
     <Component class="javax.swing.JLabel" name="lblTituloNuevaTarea">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Liberation Sans" size="24" style="1"/>
+          <Font name="Liberation Sans" size="26" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Nueva tarea"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTitulo">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Liberation Sans" size="16" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Titulo"/>
       </Properties>
     </Component>
@@ -121,6 +120,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblDescripcion">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Liberation Sans" size="16" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
       </Properties>
     </Component>
@@ -141,6 +143,9 @@
     </Container>
     <Component class="javax.swing.JLabel" name="lblPrioridad">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Liberation Sans" size="16" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Prioridad"/>
       </Properties>
     </Component>
@@ -149,6 +154,9 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[72, 22]"/>
+        </Property>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -156,6 +164,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblCategoria">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Liberation Sans" size="16" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Categoria"/>
       </Properties>
     </Component>
@@ -171,7 +182,10 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblFechaLimite">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha l&#xed;mite"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Liberation Sans" size="16" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Fecha l&#xed;mite (dd/mm/aa)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="txtFecha">
@@ -186,6 +200,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnGuardarTarea">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="ff" red="66" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
       <Events>
@@ -194,6 +214,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnCancelarTarea">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="ff" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
