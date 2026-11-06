@@ -68,8 +68,6 @@ public class Inicio extends javax.swing.JFrame {
         cbCategoria = new javax.swing.JComboBox<>();
         lblPrioridadFiltro = new javax.swing.JLabel();
         cbPrioridad = new javax.swing.JComboBox<>();
-        lblFechaLimiteFiltro = new javax.swing.JLabel();
-        cbFechaLimite = new javax.swing.JComboBox<>();
         panelAcciones = new javax.swing.JPanel();
         btnVerDetallesTarea = new javax.swing.JButton();
         btnEditarTarea = new javax.swing.JButton();
@@ -113,12 +111,6 @@ public class Inicio extends javax.swing.JFrame {
         cbPrioridad.setForeground(new java.awt.Color(51, 51, 51));
         cbPrioridad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Alta", "Media", "Baja" }));
 
-        lblFechaLimiteFiltro.setText("Fecha límite");
-
-        cbFechaLimite.setBackground(new java.awt.Color(214, 234, 248));
-        cbFechaLimite.setForeground(new java.awt.Color(51, 51, 51));
-        cbFechaLimite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout panelFiltroLayout = new javax.swing.GroupLayout(panelFiltro);
         panelFiltro.setLayout(panelFiltroLayout);
         panelFiltroLayout.setHorizontalGroup(
@@ -130,13 +122,10 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(lblEstadoFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbEstado, 0, 236, Short.MAX_VALUE)
                     .addComponent(cbCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
                 .addGroup(panelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblPrioridadFiltro)
-                        .addComponent(cbPrioridad, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblFechaLimiteFiltro))
-                    .addComponent(cbFechaLimite, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblPrioridadFiltro)
+                    .addComponent(cbPrioridad, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
         panelFiltroLayout.setVerticalGroup(
@@ -151,13 +140,9 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbPrioridad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCategoriaFiltro)
-                    .addComponent(lblFechaLimiteFiltro))
+                .addComponent(lblCategoriaFiltro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbFechaLimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         btnVerDetallesTarea.setBackground(new java.awt.Color(102, 163, 163));
@@ -270,10 +255,10 @@ public class Inicio extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(62, 62, 62)
                                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnNuevaTarea, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(btnInfoIntegrantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnNuevaTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInfoIntegrantes, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(28, 28, 28))
         );
@@ -287,7 +272,7 @@ public class Inicio extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGap(17, 17, 17)
                         .addComponent(btnInfoIntegrantes, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnNuevaTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -401,13 +386,11 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btnVerDetallesTarea;
     private javax.swing.JComboBox<String> cbCategoria;
     private javax.swing.JComboBox<String> cbEstado;
-    private javax.swing.JComboBox<String> cbFechaLimite;
     private javax.swing.JComboBox<String> cbPrioridad;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAcciones;
     private javax.swing.JLabel lblCategoriaFiltro;
     private javax.swing.JLabel lblEstadoFiltro;
-    private javax.swing.JLabel lblFechaLimiteFiltro;
     private javax.swing.JLabel lblLupaIcono;
     private javax.swing.JLabel lblPrioridadFiltro;
     private javax.swing.JLabel lblTitulo;
