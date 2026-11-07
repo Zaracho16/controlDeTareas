@@ -90,9 +90,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txtFecha" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnGuardarTarea" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnCancelarTarea" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCancelarTarea" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
