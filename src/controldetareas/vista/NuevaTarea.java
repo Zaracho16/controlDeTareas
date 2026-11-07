@@ -6,6 +6,7 @@ import controldetareas.modelo.Categoria;
 import controldetareas.modelo.Usuario;
 import controldetareas.dao.PrioridadDAO;
 import controldetareas.modelo.Prioridad;
+import controldetareas.modelo.Tarea;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -14,24 +15,51 @@ public class NuevaTarea extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(NuevaTarea.class.getName());
 
-    /**
-     * Creates new form NuevaTarea
-     */
-    
     private Usuario usuario;
     private Inicio ventanaInicio;
     
-    public NuevaTarea(Usuario usuario, Inicio ventanaInicio) {
-        initComponents();
-        setLocationRelativeTo(null);
-        setResizable(false);
+    private Tarea tareaEditar;
+    private boolean modoEdicion = false;
+    
+public NuevaTarea(Usuario usuario, Inicio ventanaInicio) {
+    this(usuario, ventanaInicio, null);
+}
+
+public NuevaTarea(Usuario usuario, Inicio ventanaInicio, Tarea tareaEditar) {
+    
+    initComponents();
+    setLocationRelativeTo(null);
+    setResizable(false);
+
+    this.usuario = usuario;
+    this.ventanaInicio = ventanaInicio;
+    this.tareaEditar = tareaEditar;
+
+    cargarCategorias();
+    cargarPrioridades();
+
+    if (tareaEditar != null) {
         
-        this.usuario = usuario;
-        this.ventanaInicio = ventanaInicio;
+        modoEdicion = true;
         
-        cargarCategorias();  
-        cargarPrioridades();
+        lblTituloNuevaTarea.setText("Editar Tarea");
+        btnGuardarTarea.setText("Guardar cambios");
+
+        txtNombreTarea.setText(tareaEditar.getTitulo());
+        txtDescripcion.setText(tareaEditar.getDescripcion());
+
+        cbCategoria.setSelectedItem(tareaEditar.getNombreCategoria());
+        cbPrioridad.setSelectedItem(tareaEditar.getNombrePrioridad());
+
+        if (tareaEditar.getFechaLimite() != null) {
+            java.text.SimpleDateFormat formato =
+                    new java.text.SimpleDateFormat("dd/MM/yyyy");
+
+            txtFecha.setText(formato.format(tareaEditar.getFechaLimite()));
+        }
     }
+    
+}
     
 
     /**
@@ -160,7 +188,7 @@ public class NuevaTarea extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnGuardarTarea)
                     .addComponent(btnCancelarTarea))
                 .addGap(22, 22, 22))
@@ -251,25 +279,41 @@ public class NuevaTarea extends javax.swing.JFrame {
 
         controldetareas.dao.TareaDAO tareaDAO = new controldetareas.dao.TareaDAO();
 
-        boolean guardado = tareaDAO.crearTarea(
-                usuario.getId(),
-                idCategoria,
-                idPrioridad,
-                titulo,
-                descripcion,
-                fechaLimite
-        );
+        boolean guardado;
+
+        if (modoEdicion) {
+            guardado = tareaDAO.editarTarea(
+                    tareaEditar.getIdTareas(),
+                    usuario.getId(),
+                    idCategoria,
+                    idPrioridad,
+                    titulo,
+                    descripcion,
+                    fechaLimite
+            );
+        } else {
+            guardado = tareaDAO.crearTarea(
+                    usuario.getId(),
+                    idCategoria,
+                    idPrioridad,
+                    titulo,
+                    descripcion,
+                    fechaLimite
+            );
+        }
 
         if (guardado) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Tarea guardada correctamente");
-            
-            ventanaInicio.cargarTareas();
+            if (modoEdicion) {
+                JOptionPane.showMessageDialog(this, "Tarea actualizada correctamente");
+            } else {
+                JOptionPane.showMessageDialog(this, "Tarea guardada correctamente");
+            }
 
+            ventanaInicio.cargarTareas();
             this.dispose();
 
         } else {
-            javax.swing.JOptionPane.showMessageDialog(
-                    this, "No se pudo guardar la tarea.");
+            JOptionPane.showMessageDialog(this, "No se pudo guardar la tarea.");
         }
 
     }//GEN-LAST:event_btnGuardarTareaActionPerformed

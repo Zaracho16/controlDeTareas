@@ -333,7 +333,43 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerDetallesTareaActionPerformed
 
     private void btnEditarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarTareaActionPerformed
-        // TODO add your handling code here:
+        
+        int filaSeleccionada = tablaTareas.getSelectedRow();
+        
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(this, "Seleccione una tarea para editarla", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        int filaModelo = tablaTareas.convertRowIndexToModel(filaSeleccionada);
+        int idTarea = (int) tablaTareas.getModel().getValueAt(filaModelo, 0);
+        
+        TareaDAO tareaDAO = new TareaDAO();
+        List<Tarea> tareas = tareaDAO.listarTareas(usuario.getId());
+        
+        Tarea tareaSeleccionada = null;
+        
+        for (Tarea tarea : tareas) {
+            if(tarea.getIdTareas() == idTarea) {
+                tareaSeleccionada = tarea;
+                break;
+            }
+        }
+        
+        if (tareaSeleccionada == null) {
+            
+            JOptionPane.showMessageDialog(this, "No se encontro la tarea seleccionada", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        NuevaTarea ventana = new NuevaTarea(
+                usuario,
+                this,
+                tareaSeleccionada
+        );
+        
+        ventana.setVisible(true);
+        
     }//GEN-LAST:event_btnEditarTareaActionPerformed
 
     private void btnNuevaTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaTareaActionPerformed

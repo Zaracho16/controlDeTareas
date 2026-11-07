@@ -156,4 +156,41 @@ public class TareaDAO {
               
     }
     
+    public boolean editarTarea(int idTareas, int idUsuario, int idCategoria, int idPrioridad ,String titulo, String descripcion, java.sql.Date fechaLimite ) {
+        
+        String sql =  """
+         UPDATE tareas
+         SET id_categoria = ?,
+             id_prioridad = ?,
+             titulo = ?,
+             descripcion = ?,
+             fecha_limite = ?     
+         WHERE id_tareas = ? AND id_usuario = ?
+              
+        """;
+        
+        try (Connection conexion = Conexion.conectar(); PreparedStatement sentencia = conexion.prepareStatement(sql)) {
+            
+           sentencia.setInt(1, idCategoria);
+           sentencia.setInt(2, idPrioridad);
+           sentencia.setString(3, titulo);
+           sentencia.setString(4, descripcion);
+           sentencia.setDate(5, fechaLimite);
+           sentencia.setInt(6, idTareas);
+           sentencia.setInt(7, idUsuario);
+           
+           return sentencia.executeUpdate() > 0;
+           
+            
+        } catch (SQLException e) {
+            
+            System.out.println("Error al actualizar la tarea");
+            e.printStackTrace();
+            return false;
+            
+        }
+        
+        
+    }
+    
 }
