@@ -1,23 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package controldetareas.vista;
 
-/**
- *
- * @author zaracho
- */
 public class InfoDesarrolladores extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InfoDesarrolladores.class.getName());
 
-    /**
-     * Creates new form InfoDesarrolladores
-     */
     public InfoDesarrolladores() {
+        
         initComponents();
+        
         setLocationRelativeTo(null);
+        setResizable(false);
+        
     }
 
     /**
@@ -29,7 +23,6 @@ public class InfoDesarrolladores extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblDesarrolladoPor = new javax.swing.JLabel();
         panelInfoIntegrantes = new java.awt.Panel();
         int1 = new javax.swing.JLabel();
         int2 = new javax.swing.JLabel();
@@ -43,83 +36,129 @@ public class InfoDesarrolladores extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnAceptar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lblDesarrolladoPor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
 
-        lblDesarrolladoPor.setBackground(new java.awt.Color(0, 0, 0));
-        lblDesarrolladoPor.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-        lblDesarrolladoPor.setForeground(new java.awt.Color(0, 0, 0));
-        lblDesarrolladoPor.setText("Sistema desarrollado por:");
+        panelInfoIntegrantes.setBackground(new java.awt.Color(234, 241, 246));
 
-        panelInfoIntegrantes.setBackground(new java.awt.Color(153, 153, 153));
-
+        int1.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         int1.setForeground(new java.awt.Color(0, 0, 0));
         int1.setText("Adrian Zaracho - CI 5531270");
 
+        int2.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         int2.setForeground(new java.awt.Color(0, 0, 0));
         int2.setText("Shirley Villalba - CI 5780181");
 
+        int3.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         int3.setForeground(new java.awt.Color(0, 0, 0));
         int3.setText("Adriana Yegros - CI 5988304");
 
+        int4.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         int4.setForeground(new java.awt.Color(0, 0, 0));
         int4.setText("Aldo Lopez - CI 5755057");
 
+        int5.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         int5.setForeground(new java.awt.Color(0, 0, 0));
         int5.setText("Tadeo Sosa - CI 6879628");
 
+        int6.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         int6.setForeground(new java.awt.Color(0, 0, 0));
         int6.setText("Tobias Velazquez - CI 5492526");
 
+        int7.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         int7.setForeground(new java.awt.Color(0, 0, 0));
         int7.setText("Marcos Peña - CI 5707468");
 
+        int8.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         int8.setForeground(new java.awt.Color(0, 0, 0));
         int8.setText("Sara Martinez - CI 6617568");
 
+        int9.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         int9.setForeground(new java.awt.Color(0, 0, 0));
         int9.setText("Mauricio Vergara - CI 5792361");
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Tema: Control de tareas");
 
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel2.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Grupo: 1");
+
+        btnAceptar.setBackground(new java.awt.Color(7, 155, 197));
+        btnAceptar.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAceptar.setText("Aceptar");
+        btnAceptar.setFocusPainted(false);
+        btnAceptar.addActionListener(this::btnAceptarActionPerformed);
+
+        jPanel1.setBackground(new java.awt.Color(16, 29, 50));
+
+        lblDesarrolladoPor.setBackground(new java.awt.Color(255, 255, 255));
+        lblDesarrolladoPor.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        lblDesarrolladoPor.setForeground(new java.awt.Color(255, 255, 255));
+        lblDesarrolladoPor.setText("Sistema desarrollado por:");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblDesarrolladoPor)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(lblDesarrolladoPor)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout panelInfoIntegrantesLayout = new javax.swing.GroupLayout(panelInfoIntegrantes);
         panelInfoIntegrantes.setLayout(panelInfoIntegrantesLayout);
         panelInfoIntegrantesLayout.setHorizontalGroup(
             panelInfoIntegrantesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelInfoIntegrantesLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInfoIntegrantesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelInfoIntegrantesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelInfoIntegrantesLayout.createSequentialGroup()
                         .addGroup(panelInfoIntegrantesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(int1)
+                            .addComponent(int6)
+                            .addComponent(int8)
+                            .addComponent(int9)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(int7))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelInfoIntegrantesLayout.createSequentialGroup()
+                        .addGroup(panelInfoIntegrantesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(int2)
                             .addComponent(int3)
                             .addComponent(int4)
-                            .addComponent(int5)
-                            .addComponent(int6)
-                            .addComponent(int7)
-                            .addComponent(int8)
-                            .addComponent(int9)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 25, Short.MAX_VALUE)))
+                            .addComponent(int5))
+                        .addGap(50, 289, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInfoIntegrantesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
         panelInfoIntegrantesLayout.setVerticalGroup(
             panelInfoIntegrantesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInfoIntegrantesLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(int1)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(int2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(int3)
@@ -135,39 +174,24 @@ public class InfoDesarrolladores extends javax.swing.JFrame {
                 .addComponent(int8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(int9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(btnAceptar)
+                .addGap(54, 54, 54))
         );
-
-        btnAceptar.setText("Aceptar");
-        btnAceptar.addActionListener(this::btnAceptarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDesarrolladoPor)
-                    .addComponent(panelInfoIntegrantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addComponent(btnAceptar)
-                .addGap(25, 25, 25))
+            .addComponent(panelInfoIntegrantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(lblDesarrolladoPor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelInfoIntegrantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(btnAceptar)
-                .addGap(23, 23, 23))
+            .addComponent(panelInfoIntegrantes, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -215,6 +239,7 @@ public class InfoDesarrolladores extends javax.swing.JFrame {
     private javax.swing.JLabel int9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblDesarrolladoPor;
     private java.awt.Panel panelInfoIntegrantes;
     // End of variables declaration//GEN-END:variables
