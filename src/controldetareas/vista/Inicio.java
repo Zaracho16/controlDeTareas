@@ -535,7 +535,49 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCompletadoTareaActionPerformed
 
     private void btnVerDetallesTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetallesTareaActionPerformed
-        // TODO add your handling code here:
+       
+        int filaSeleccionada = tablaTareas.getSelectedRow();
+        
+        if (filaSeleccionada == -1) {
+            
+            JOptionPane.showMessageDialog(this, "Seleccione una tarea para ver sus detalles", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+            
+        }
+        
+        int filaModelo = tablaTareas.convertRowIndexToModel(filaSeleccionada);
+        int idTarea = (int) tablaTareas.getModel().getValueAt(filaModelo, 0);
+        
+        TareaDAO tareaDAO = new TareaDAO();
+        List<Tarea> tareas = tareaDAO.listarTareas(usuario.getId());
+        
+        Tarea tareaSeleccionada = null;
+        
+        for (Tarea tarea : tareas) {
+            
+            if (tarea.getIdTareas() == idTarea) {
+                tareaSeleccionada = tarea;
+                break;
+            }
+            
+        }
+        
+        if (tareaSeleccionada == null) {
+            
+            JOptionPane.showMessageDialog(this, "No se encontro la tarea seleccionada", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+            
+        }
+        
+        NuevaTarea ventana = new NuevaTarea(
+                usuario,
+                this,
+                tareaSeleccionada,
+                true
+        );
+        
+        ventana.setVisible(true);
+        
     }//GEN-LAST:event_btnVerDetallesTareaActionPerformed
 
     private void txtBuscarPorTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarPorTituloActionPerformed
