@@ -5,6 +5,13 @@ import controldetareas.dao.TareaDAO;
 import controldetareas.modelo.Tarea;
 import controldetareas.modelo.Usuario;
 
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import javax.swing.JComboBox;
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.TableRowSorter;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -15,6 +22,7 @@ public class Inicio extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Inicio.class.getName());
 
     private Usuario usuario;
+    private TableRowSorter<DefaultTableModel> sorter;
 
     public Inicio(Usuario usuario) {
         
@@ -28,6 +36,7 @@ public class Inicio extends javax.swing.JFrame {
         
         this.usuario = usuario;
         
+        configurarFiltros();
         cargarTareas();
         
     }
@@ -68,6 +77,64 @@ public class Inicio extends javax.swing.JFrame {
         }
         
     }
+    private void configurarFiltros() {
+
+    sorter = new TableRowSorter<>((DefaultTableModel) tablaTareas.getModel());
+    tablaTareas.setRowSorter(sorter);
+
+    txtBuscarPorTitulo.getDocument().addDocumentListener(new DocumentListener() {
+        @Override
+        public void insertUpdate(DocumentEvent e) { aplicarFiltros(); }
+        @Override
+        public void removeUpdate(DocumentEvent e) { aplicarFiltros(); }
+        @Override
+        public void changedUpdate(DocumentEvent e) { aplicarFiltros(); }
+    });
+
+    cbEstado.addActionListener(e -> aplicarFiltros());
+    cbPrioridad.addActionListener(e -> aplicarFiltros());
+    cbCategoria.addActionListener(e -> aplicarFiltros());
+
+    btnLimpiarFiltro.addActionListener(e -> limpiarFiltros());
+}
+
+private void aplicarFiltros() {
+
+    List<RowFilter<DefaultTableModel, Object>> filtros = new ArrayList<>();
+
+    String texto = txtBuscarPorTitulo.getText().trim();
+    if (texto.length() >= 3) {
+        filtros.add(RowFilter.regexFilter("(?i)" + Pattern.quote(texto), 1));
+    }
+
+    agregarFiltroCombo(filtros, cbPrioridad, 2);
+    agregarFiltroCombo(filtros, cbEstado, 3);
+    agregarFiltroCombo(filtros, cbCategoria, 4);
+
+    if (filtros.isEmpty()) {
+        sorter.setRowFilter(null);
+    } else {
+        sorter.setRowFilter(RowFilter.andFilter(filtros));
+    }
+}
+
+private void agregarFiltroCombo(List<RowFilter<DefaultTableModel, Object>> filtros,
+                                JComboBox<String> combo, int columna) {
+
+    if (combo.getSelectedIndex() > 0) {
+        String valor = combo.getSelectedItem().toString();
+        filtros.add(RowFilter.regexFilter("^" + Pattern.quote(valor) + "$", columna));
+    }
+}
+
+private void limpiarFiltros() {
+
+    txtBuscarPorTitulo.setText("");
+    cbEstado.setSelectedIndex(0);
+    cbPrioridad.setSelectedIndex(0);
+    cbCategoria.setSelectedIndex(0);
+    sorter.setRowFilter(null);
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -177,7 +244,6 @@ public class Inicio extends javax.swing.JFrame {
 
         txtBuscarPorTitulo.setBackground(new java.awt.Color(255, 255, 255));
         txtBuscarPorTitulo.setForeground(new java.awt.Color(0, 0, 0));
-        txtBuscarPorTitulo.setText("Buscar por titulo...");
         txtBuscarPorTitulo.setMargin(new java.awt.Insets(4, 8, 4, 8));
         txtBuscarPorTitulo.addActionListener(this::txtBuscarPorTituloActionPerformed);
 
@@ -371,9 +437,7 @@ public class Inicio extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelTituloInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
