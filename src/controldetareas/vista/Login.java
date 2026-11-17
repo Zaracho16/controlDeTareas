@@ -36,15 +36,16 @@ public class Login extends javax.swing.JFrame {
         jProgressBar1 = new javax.swing.JProgressBar();
         jTextField2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        lblIniciarSesion = new javax.swing.JLabel();
+        lblFondoImagenLogin = new javax.swing.JLabel();
+        panelDerechoLogin = new javax.swing.JPanel();
         lblCorreo = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
-        btnEntrar = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
+        btnEntrar = new javax.swing.JButton();
         btnCrearCuenta = new javax.swing.JButton();
         btnSalirLogin = new javax.swing.JButton();
-        lblFondoImagenLogin = new javax.swing.JLabel();
+        lblIniciarSesion = new javax.swing.JLabel();
         lblSubtitulo = new javax.swing.JLabel();
 
         jLabel4.setText("Correo");
@@ -62,50 +63,113 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(243, 244, 246));
 
-        lblIniciarSesion.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
-        lblIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
-        lblIniciarSesion.setText("Iniciar Sesión");
+        lblFondoImagenLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/controldetareas/recursos/fondo-login.jpeg"))); // NOI18N
+
+        panelDerechoLogin.setBackground(new java.awt.Color(16, 27, 48));
 
         lblCorreo.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
-        lblCorreo.setForeground(new java.awt.Color(102, 102, 102));
+        lblCorreo.setForeground(new java.awt.Color(255, 255, 255));
         lblCorreo.setText("Correo");
 
+        txtCorreo.setBackground(new java.awt.Color(204, 204, 204));
+        txtCorreo.setForeground(new java.awt.Color(0, 0, 0));
         txtCorreo.setMargin(new java.awt.Insets(4, 8, 4, 8));
         txtCorreo.setName("txtCorreo"); // NOI18N
         txtCorreo.addActionListener(this::txtCorreoActionPerformed);
 
         lblPassword.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
-        lblPassword.setForeground(new java.awt.Color(102, 102, 102));
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Contraseña");
 
-        btnEntrar.setBackground(new java.awt.Color(0, 153, 204));
-        btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEntrar.setText("Iniciar sesión");
-        btnEntrar.setToolTipText("");
-        btnEntrar.setMargin(new java.awt.Insets(6, 18, 6, 18));
-        btnEntrar.setName("btnIniciarSesion"); // NOI18N
-        btnEntrar.addActionListener(this::btnEntrarActionPerformed);
-
+        txtPassword.setBackground(new java.awt.Color(204, 204, 204));
+        txtPassword.setForeground(new java.awt.Color(0, 0, 0));
         txtPassword.setMargin(new java.awt.Insets(4, 8, 4, 8));
         txtPassword.setName("txtContraseña"); // NOI18N
         txtPassword.addActionListener(this::txtPasswordActionPerformed);
 
-        btnCrearCuenta.setBackground(new java.awt.Color(102, 255, 51));
-        btnCrearCuenta.setForeground(new java.awt.Color(51, 51, 51));
+        btnEntrar.setBackground(new java.awt.Color(0, 153, 204));
+        btnEntrar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEntrar.setText("Iniciar sesión");
+        btnEntrar.setToolTipText("");
+        btnEntrar.setFocusPainted(false);
+        btnEntrar.setMargin(new java.awt.Insets(6, 18, 6, 18));
+        btnEntrar.setName("btnIniciarSesion"); // NOI18N
+        btnEntrar.addActionListener(this::btnEntrarActionPerformed);
+
+        btnCrearCuenta.setBackground(new java.awt.Color(0, 102, 204));
+        btnCrearCuenta.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        btnCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
         btnCrearCuenta.setText("Crear cuenta");
+        btnCrearCuenta.setFocusPainted(false);
         btnCrearCuenta.setName("btnCrearCuenta"); // NOI18N
         btnCrearCuenta.addActionListener(this::btnCrearCuentaActionPerformed);
 
-        btnSalirLogin.setBackground(new java.awt.Color(255, 102, 102));
-        btnSalirLogin.setForeground(new java.awt.Color(51, 51, 51));
+        btnSalirLogin.setBackground(new java.awt.Color(255, 0, 0));
+        btnSalirLogin.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        btnSalirLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnSalirLogin.setText("Salir");
+        btnSalirLogin.setFocusPainted(false);
         btnSalirLogin.setName("Salir"); // NOI18N
         btnSalirLogin.addActionListener(this::btnSalirLoginActionPerformed);
 
-        lblFondoImagenLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/controldetareas/recursos/fondo-login.jpeg"))); // NOI18N
+        lblIniciarSesion.setFont(new java.awt.Font("Liberation Sans", 1, 28)); // NOI18N
+        lblIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        lblIniciarSesion.setText("Iniciar Sesión");
 
-        lblSubtitulo.setForeground(new java.awt.Color(153, 153, 153));
+        lblSubtitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblSubtitulo.setText("Ingresa a tu cuenta para gestionar tus tareas");
+
+        javax.swing.GroupLayout panelDerechoLoginLayout = new javax.swing.GroupLayout(panelDerechoLogin);
+        panelDerechoLogin.setLayout(panelDerechoLoginLayout);
+        panelDerechoLoginLayout.setHorizontalGroup(
+            panelDerechoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDerechoLoginLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(panelDerechoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDerechoLoginLayout.createSequentialGroup()
+                        .addGroup(panelDerechoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPassword)
+                            .addComponent(lblCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSubtitulo)
+                            .addComponent(lblIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelDerechoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtCorreo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelDerechoLoginLayout.createSequentialGroup()
+                        .addComponent(btnCrearCuenta)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSalirLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))))
+            .addGroup(panelDerechoLoginLayout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 71, Short.MAX_VALUE))
+        );
+        panelDerechoLoginLayout.setVerticalGroup(
+            panelDerechoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDerechoLoginLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(lblIniciarSesion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSubtitulo)
+                .addGap(40, 40, 40)
+                .addComponent(lblCorreo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(btnEntrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addGroup(panelDerechoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCrearCuenta)
+                    .addComponent(btnSalirLogin))
+                .addGap(46, 46, 46))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,52 +177,13 @@ public class Login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(lblFondoImagenLogin)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnCrearCuenta)
-                                .addGap(58, 58, 58)
-                                .addComponent(btnSalirLogin))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblCorreo)
-                                .addComponent(lblPassword)
-                                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                                    .addComponent(txtCorreo, javax.swing.GroupLayout.Alignment.LEADING))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblSubtitulo))
-                        .addContainerGap(12, Short.MAX_VALUE))))
+                .addGap(0, 0, 0)
+                .addComponent(panelDerechoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(lblIniciarSesion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSubtitulo)
-                .addGap(56, 56, 56)
-                .addComponent(lblCorreo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(btnEntrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCrearCuenta)
-                    .addComponent(btnSalirLogin))
-                .addGap(69, 69, 69))
-            .addComponent(lblFondoImagenLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(lblFondoImagenLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 530, Short.MAX_VALUE)
+            .addComponent(panelDerechoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -239,6 +264,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel lblIniciarSesion;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblSubtitulo;
+    private javax.swing.JPanel panelDerechoLogin;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
