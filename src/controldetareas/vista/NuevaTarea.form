@@ -114,9 +114,9 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txtNombreTarea" alignment="0" min="-2" pref="446" max="-2" attributes="0"/>
-                              <Component id="lblDescripcion" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" alignment="0" min="-2" pref="446" max="-2" attributes="0"/>
                               <Component id="lblTitulo" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="lblDescripcion" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="69" max="32767" attributes="0"/>
                       </Group>
