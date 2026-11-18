@@ -4,6 +4,10 @@ package controldetareas.vista;
 import controldetareas.dao.TareaDAO;
 import controldetareas.modelo.Tarea;
 import controldetareas.modelo.Usuario;
+import controldetareas.dao.CategoriaDAO;
+import controldetareas.dao.PrioridadDAO;
+import controldetareas.modelo.Categoria;
+import controldetareas.modelo.Prioridad;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -36,6 +40,7 @@ public class Inicio extends javax.swing.JFrame {
         
         this.usuario = usuario;
         
+        cargarFiltros();
         configurarFiltros();
         cargarTareas();
         
@@ -77,64 +82,89 @@ public class Inicio extends javax.swing.JFrame {
         }
         
     }
+    
+    private void cargarFiltros() {
+
+        cbCategoria.removeAllItems();
+        cbCategoria.addItem("Todas");
+
+        CategoriaDAO categoriaDAO = new CategoriaDAO();
+        List<Categoria> categorias =
+                categoriaDAO.listarCategorias(usuario.getId());
+
+        for (Categoria categoria : categorias) {
+            cbCategoria.addItem(categoria.getNombre());
+        }
+
+        cbPrioridad.removeAllItems();
+        cbPrioridad.addItem("Todos");
+
+        PrioridadDAO prioridadDAO = new PrioridadDAO();
+        List<Prioridad> prioridades =
+                prioridadDAO.listarPrioridades(usuario.getId());
+
+        for (Prioridad prioridad : prioridades) {
+            cbPrioridad.addItem(prioridad.getNombre());
+        }
+    }
+    
     private void configurarFiltros() {
 
-    sorter = new TableRowSorter<>((DefaultTableModel) tablaTareas.getModel());
-    tablaTareas.setRowSorter(sorter);
+        sorter = new TableRowSorter<>((DefaultTableModel) tablaTareas.getModel());
+        tablaTareas.setRowSorter(sorter);
 
-    txtBuscarPorTitulo.getDocument().addDocumentListener(new DocumentListener() {
-        @Override
-        public void insertUpdate(DocumentEvent e) { aplicarFiltros(); }
-        @Override
-        public void removeUpdate(DocumentEvent e) { aplicarFiltros(); }
-        @Override
-        public void changedUpdate(DocumentEvent e) { aplicarFiltros(); }
-    });
+        txtBuscarPorTitulo.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) { aplicarFiltros(); }
+            @Override
+            public void removeUpdate(DocumentEvent e) { aplicarFiltros(); }
+            @Override
+            public void changedUpdate(DocumentEvent e) { aplicarFiltros(); }
+        });
 
-    cbEstado.addActionListener(e -> aplicarFiltros());
-    cbPrioridad.addActionListener(e -> aplicarFiltros());
-    cbCategoria.addActionListener(e -> aplicarFiltros());
+        cbEstado.addActionListener(e -> aplicarFiltros());
+        cbPrioridad.addActionListener(e -> aplicarFiltros());
+        cbCategoria.addActionListener(e -> aplicarFiltros());
 
-    btnLimpiarFiltro.addActionListener(e -> limpiarFiltros());
-}
-
-private void aplicarFiltros() {
-
-    List<RowFilter<DefaultTableModel, Object>> filtros = new ArrayList<>();
-
-    String texto = txtBuscarPorTitulo.getText().trim();
-    if (texto.length() >= 3) {
-        filtros.add(RowFilter.regexFilter("(?i)" + Pattern.quote(texto), 1));
+        btnLimpiarFiltro.addActionListener(e -> limpiarFiltros());
     }
 
-    agregarFiltroCombo(filtros, cbPrioridad, 2);
-    agregarFiltroCombo(filtros, cbEstado, 3);
-    agregarFiltroCombo(filtros, cbCategoria, 4);
+    private void aplicarFiltros() {
 
-    if (filtros.isEmpty()) {
+        List<RowFilter<DefaultTableModel, Object>> filtros = new ArrayList<>();
+
+        String texto = txtBuscarPorTitulo.getText().trim();
+        if (texto.length() >= 3) {
+            filtros.add(RowFilter.regexFilter("(?i)" + Pattern.quote(texto), 1));
+        }
+
+        agregarFiltroCombo(filtros, cbPrioridad, 2);
+        agregarFiltroCombo(filtros, cbEstado, 3);
+        agregarFiltroCombo(filtros, cbCategoria, 4);
+
+        if (filtros.isEmpty()) {
+            sorter.setRowFilter(null);
+        } else {
+            sorter.setRowFilter(RowFilter.andFilter(filtros));
+        }
+    }
+
+    private void agregarFiltroCombo(List<RowFilter<DefaultTableModel, Object>> filtros, JComboBox<String> combo, int columna) {
+        if (combo.getSelectedIndex() > 0) {
+            String valor = combo.getSelectedItem().toString();
+            filtros.add(RowFilter.regexFilter("^" + Pattern.quote(valor) + "$", columna));
+        }
+    }
+
+    private void limpiarFiltros() {
+
+        txtBuscarPorTitulo.setText("");
+        cbEstado.setSelectedIndex(0);
+        cbPrioridad.setSelectedIndex(0);
+        cbCategoria.setSelectedIndex(0);
         sorter.setRowFilter(null);
-    } else {
-        sorter.setRowFilter(RowFilter.andFilter(filtros));
+        
     }
-}
-
-private void agregarFiltroCombo(List<RowFilter<DefaultTableModel, Object>> filtros,
-                                JComboBox<String> combo, int columna) {
-
-    if (combo.getSelectedIndex() > 0) {
-        String valor = combo.getSelectedItem().toString();
-        filtros.add(RowFilter.regexFilter("^" + Pattern.quote(valor) + "$", columna));
-    }
-}
-
-private void limpiarFiltros() {
-
-    txtBuscarPorTitulo.setText("");
-    cbEstado.setSelectedIndex(0);
-    cbPrioridad.setSelectedIndex(0);
-    cbCategoria.setSelectedIndex(0);
-    sorter.setRowFilter(null);
-}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -434,35 +464,39 @@ private void limpiarFiltros() {
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrincipalLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPrioridadFiltro)
-                    .addComponent(lblEstadoFiltro)
-                    .addComponent(btnCategorias))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbPrioridad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addComponent(lblCategoriaFiltro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblLupaIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtBuscarPorTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnLimpiarFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPrioridades, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelAcciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPrincipalLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPrioridadFiltro)
+                            .addComponent(lblEstadoFiltro))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbPrioridad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)))
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPrincipalLayout.createSequentialGroup()
+                        .addComponent(lblCategoriaFiltro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblLupaIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtBuscarPorTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnLimpiarFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(28, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
+                        .addComponent(btnPrioridades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelAcciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -485,13 +519,17 @@ private void limpiarFiltros() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInfoIntegrantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoIntegrantesActionPerformed
+        
         InfoDesarrolladores infodesarrolladores = new InfoDesarrolladores();
         infodesarrolladores.setVisible(true);
+        
     }//GEN-LAST:event_btnInfoIntegrantesActionPerformed
 
     private void btnNuevaTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaTareaActionPerformed
+       
         NuevaTarea ventana = new NuevaTarea(usuario, this);
         ventana.setVisible(true);
+        
     }//GEN-LAST:event_btnNuevaTareaActionPerformed
 
     private void btnEliminarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTareaActionPerformed
@@ -678,7 +716,7 @@ private void limpiarFiltros() {
     }//GEN-LAST:event_btnVerDetallesTareaActionPerformed
 
     private void txtBuscarPorTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarPorTituloActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtBuscarPorTituloActionPerformed
 
     private void btnCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoriasActionPerformed
