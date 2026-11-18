@@ -723,6 +723,14 @@ public class Inicio extends javax.swing.JFrame {
         
         Categorias categorias = new Categorias(usuario);
         
+        categorias.addWindowListener(new java.awt.event.WindowAdapter () {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                cargarFiltros();
+                aplicarFiltros();
+            }
+        });
+        
         categorias.setVisible(true);
         
     }//GEN-LAST:event_btnCategoriasActionPerformed
@@ -730,6 +738,14 @@ public class Inicio extends javax.swing.JFrame {
     private void btnPrioridadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrioridadesActionPerformed
         
         Prioridades prioridades = new Prioridades(usuario);
+        
+        prioridades.addWindowListener(new java.awt.event.WindowAdapter () {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                cargarFiltros();
+                aplicarFiltros();
+            }
+        });      
         
         prioridades.setVisible(true);
         
