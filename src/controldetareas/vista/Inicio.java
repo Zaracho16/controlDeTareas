@@ -171,6 +171,7 @@ private void limpiarFiltros() {
         btnEliminarTarea = new javax.swing.JButton();
         lblAcciones = new javax.swing.JLabel();
         btnNuevaTarea = new javax.swing.JButton();
+        btnCategorias = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -373,6 +374,12 @@ private void limpiarFiltros() {
                 .addGap(31, 31, 31))
         );
 
+        btnCategorias.setBackground(new java.awt.Color(0, 102, 102));
+        btnCategorias.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        btnCategorias.setForeground(new java.awt.Color(255, 255, 255));
+        btnCategorias.setText("Categorias");
+        btnCategorias.addActionListener(this::btnCategoriasActionPerformed);
+
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
@@ -397,17 +404,24 @@ private void limpiarFiltros() {
                         .addComponent(txtBuscarPorTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLimpiarFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(panelAcciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPrincipalLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(panelAcciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(30, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49))))
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrincipalLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(28, 28, 28)
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPrioridadFiltro)
-                    .addComponent(lblEstadoFiltro))
+                    .addComponent(lblEstadoFiltro)
+                    .addComponent(btnCategorias))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -648,8 +662,17 @@ private void limpiarFiltros() {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarPorTituloActionPerformed
 
+    private void btnCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoriasActionPerformed
+        
+        Categorias categorias = new Categorias(usuario);
+        
+        categorias.setVisible(true);
+        
+    }//GEN-LAST:event_btnCategoriasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCategorias;
     private javax.swing.JButton btnCompletadoTarea;
     private javax.swing.JButton btnEditarTarea;
     private javax.swing.JButton btnEliminarTarea;
