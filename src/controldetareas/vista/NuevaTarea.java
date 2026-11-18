@@ -292,7 +292,7 @@ public class NuevaTarea extends javax.swing.JFrame {
         }
 
         CategoriaDAO categoriaDAO = new CategoriaDAO();
-        List<Categoria> categorias = categoriaDAO.listarCategorias();
+        List<Categoria> categorias = categoriaDAO.listarCategorias(usuario.getId());
 
         int idCategoria = -1;
 
@@ -310,7 +310,7 @@ public class NuevaTarea extends javax.swing.JFrame {
         }
         
         PrioridadDAO prioridadDAO = new PrioridadDAO();
-        List<Prioridad> prioridades = prioridadDAO.listarPrioridades();
+        List<Prioridad> prioridades = prioridadDAO.listarPrioridades(usuario.getId());
 
         int idPrioridad = -1;
 
@@ -377,7 +377,7 @@ public class NuevaTarea extends javax.swing.JFrame {
     private void cargarCategorias() {
 
         CategoriaDAO categoriaDAO = new CategoriaDAO();
-        List<Categoria> categorias = categoriaDAO.listarCategorias();
+        List<Categoria> categorias = categoriaDAO.listarCategorias(usuario.getId());
 
         cbCategoria.removeAllItems();
 
@@ -389,7 +389,7 @@ public class NuevaTarea extends javax.swing.JFrame {
     
     private void cargarPrioridades() {
         PrioridadDAO prioridadDAO = new PrioridadDAO();
-        List<Prioridad> prioridades = prioridadDAO.listarPrioridades();
+        List<Prioridad> prioridades = prioridadDAO.listarPrioridades(usuario.getId());
 
         cbPrioridad.removeAllItems();
 

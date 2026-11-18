@@ -13,36 +13,40 @@ import java.util.List;
 
 public class CategoriaDAO {
     
-    public List<Categoria> listarCategorias() {
-    List<Categoria> categorias = new ArrayList<>();
+    public List<Categoria> listarCategorias(int idUsuario) {
+        List<Categoria> categorias = new ArrayList<>();
 
-    String sql = """
-        SELECT id_categoria, nombre
-        FROM categoria
-        ORDER BY id_categoria
-        """;
+        String sql = """
+            SELECT id_categoria, id_usuario, nombre
+            FROM categoria
+            WHERE id_usuario = ?
+            ORDER BY id_categoria
+            """;
 
-    try (Connection conexion = Conexion.conectar();
-         PreparedStatement sentencia = conexion.prepareStatement(sql);
-         ResultSet resultado = sentencia.executeQuery()) {
+        try (Connection conexion = Conexion.conectar();
+             PreparedStatement sentencia = conexion.prepareStatement(sql)) {
 
-        while (resultado.next()) {
-            Categoria categoria = new Categoria(
-                resultado.getInt("id_categoria"),
-                0,
-                resultado.getString("nombre")
-            );
+            sentencia.setInt(1, idUsuario);
 
-            categorias.add(categoria);
+            try (ResultSet resultado = sentencia.executeQuery()) {
+
+                while (resultado.next()) {
+                    Categoria categoria = new Categoria(
+                        resultado.getInt("id_categoria"),
+                        resultado.getInt("id_usuario"),
+                        resultado.getString("nombre")
+                    );
+
+                    categorias.add(categoria);
+                }
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al listar categorías");
+            e.printStackTrace();
         }
 
-    } catch (SQLException e) {
-        System.out.println("Error al listar categorías");
-        e.printStackTrace();
-    }
-
-    return categorias;
-
+        return categorias;
     }
     
     

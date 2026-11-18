@@ -12,34 +12,39 @@ import java.util.List;
 
 public class PrioridadDAO {
 
-public List<Prioridad> listarPrioridades() {
-    List<Prioridad> prioridades = new ArrayList<>();
+    public List<Prioridad> listarPrioridades(int idUsuario) {
+        List<Prioridad> prioridades = new ArrayList<>();
 
-    String sql = """
-        SELECT id_prioridad, nombre
-        FROM prioridad
-        ORDER BY id_prioridad
-        """;
+        String sql = """
+            SELECT id_prioridad, nombre
+            FROM prioridad
+            WHERE id_usuario = ?
+            ORDER BY id_prioridad
+            """;
 
-    try (Connection conexion = Conexion.conectar();
-         PreparedStatement sentencia = conexion.prepareStatement(sql);
-         ResultSet resultado = sentencia.executeQuery()) {
+        try (Connection conexion = Conexion.conectar();
+             PreparedStatement sentencia = conexion.prepareStatement(sql)) {
 
-        while (resultado.next()) {
-            Prioridad prioridad = new Prioridad(
-                resultado.getInt("id_prioridad"),
-                resultado.getString("nombre")
-            );
+            sentencia.setInt(1, idUsuario);
 
-            prioridades.add(prioridad);
+            try (ResultSet resultado = sentencia.executeQuery()) {
+
+                while (resultado.next()) {
+                    Prioridad prioridad = new Prioridad(
+                        resultado.getInt("id_prioridad"),
+                        resultado.getString("nombre")
+                    );
+
+                    prioridades.add(prioridad);
+                }
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al listar prioridades");
+            e.printStackTrace();
         }
 
-    } catch (SQLException e) {
-        System.out.println("Error al listar prioridades");
-        e.printStackTrace();
+        return prioridades;
     }
-
-    return prioridades;
-}
 
 }
