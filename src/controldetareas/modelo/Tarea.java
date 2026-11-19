@@ -32,7 +32,6 @@ public class Tarea {
         this.idPrioridad = idPrioridad;
         this.titulo = titulo;
         this.descripcion = descripcion;
-        this.prioridad = prioridad;
         this.fechaLimite = fechaLimite;
         this.fechaCreacion = fechaCreacion;
         this.completada = completada;

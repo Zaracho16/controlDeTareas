@@ -210,7 +210,9 @@ public class Categorias extends javax.swing.JFrame {
             );
 
             txtNuevaCategoria.setText("");
+            idCategoriaSeleccionada = -1;
             cargarCategorias();
+            tablaCategoriasRegistradas.clearSelection();
 
         } else {
             JOptionPane.showMessageDialog(

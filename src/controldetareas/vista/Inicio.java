@@ -750,6 +750,7 @@ public class Inicio extends javax.swing.JFrame {
             @Override
             public void windowClosed(java.awt.event.WindowEvent e) {
                 cargarFiltros();
+                cargarTareas();
                 aplicarFiltros();
             }
         });

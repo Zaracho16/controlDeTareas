@@ -82,7 +82,7 @@ public class NuevaTarea extends javax.swing.JFrame {
             txtDescripcion.setText(tareaEditar.getDescripcion());
 
             cbCategoria.setSelectedItem(tareaEditar.getNombreCategoria());
-            cbPrioridad.setSelectedItem(tareaEditar.getDescripcion());
+            cbPrioridad.setSelectedItem(tareaEditar.getNombrePrioridad());
 
             btnCancelarTarea.setText("Volver");
 
