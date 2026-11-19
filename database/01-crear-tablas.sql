@@ -37,7 +37,7 @@ CREATE TABLE estado (
 );
 
 -- Query para insertar los estados correspondientes a la tabla estado:
-INSERT INTO estado (nombre) VALUES ('Pendiente'), ('En progreso'), ('Completada');
+INSERT INTO estado (nombre) VALUES ('Pendiente'), ('Completada');
 
 
 -- Creacion de tabla para Prioridad

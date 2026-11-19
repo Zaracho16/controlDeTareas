@@ -309,7 +309,7 @@ public class NuevaTarea extends javax.swing.JFrame {
         if (titulo.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(
                     this, "Ingresá el título de la tarea.");
-            txtNombreTarea.requestFocus();
+        txtNombreTarea.requestFocus();
             return;
         }
 
