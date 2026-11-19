@@ -76,15 +76,20 @@ CREATE TABLE tareas (
     fecha_creacion DATE NOT NULL DEFAULT CURRENT_DATE,
     completada BOOLEAN NOT NULL DEFAULT FALSE,
 
-    FOREIGN KEY (id_usuario)
-        REFERENCES usuario(id),
+    CONSTRAINT fk_tareas_usuario
+        FOREIGN KEY (id_usuario)
+        REFERENCES usuario(id)
+        ON DELETE CASCADE,
 
-    FOREIGN KEY (id_categoria)
+    CONSTRAINT fk_tareas_categoria
+        FOREIGN KEY (id_categoria)
         REFERENCES categoria(id_categoria),
 
-    FOREIGN KEY (id_estado)
+    CONSTRAINT fk_tareas_estado
+        FOREIGN KEY (id_estado)
         REFERENCES estado(id_estado),
 
-    FOREIGN KEY (id_prioridad)
+    CONSTRAINT fk_tareas_prioridad
+        FOREIGN KEY (id_prioridad)
         REFERENCES prioridad(id_prioridad)
 );
